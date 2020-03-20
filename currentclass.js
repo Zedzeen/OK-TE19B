@@ -33,7 +33,7 @@ function changeLink(url) {
 }
 
 function manRedirect(url) {
-  var tab = window.open(KLASSINFO[url][2], '_blank');
+  var tab = window.open(KLASSINFO[url][LINK], '_blank');
   tab.focus();
 }
 
@@ -49,7 +49,7 @@ function classRedirect() {
   var currentHour = time.getHours();
 
   switch(currentDay) {
-    
+
     default:
     for (var i = 0; i<har.length; i++){
       har[i] = false;
