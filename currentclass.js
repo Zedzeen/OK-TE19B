@@ -1,7 +1,7 @@
 function classRedirect() {
-  var link;
-  var tn;
-  var ln;
+  var link = "Discord";
+  var tn = "Solaf";
+  var ln = "Rast";
 
   var teknikdag = false;
   var mattedag = false;
@@ -187,10 +187,11 @@ function classRedirect() {
   }
 
   if(teknikdag && tekniktimme) {
-    link = "https://meet.google.com/kzd-jawn-frn";
+    link = "https://meet.google.com/toh-xdmy-kwd";
     tn = "Kalles Kaviar";
     ln = "Teknik";
   }
+
   if(mattedag && mattetimme) {
     link = "https://meet.google.com/wkf-bbxo-fjv";
     tn = "Björn";
