@@ -36,10 +36,12 @@
 
 
   </head>
-  <body style="width:99%;" onload="classRedirect()">
+  <body style="width:99.99%;" onload="classRedirect()">
     <script type="text/javascript">
       function classRedirect() {
         var link;
+        var tn;
+        var ln;
 
         var teknikdag = false;
         var mattedag = false;
@@ -226,45 +228,72 @@
 
         if(teknikdag && tekniktimme) {
           link = "https://meet.google.com/kzd-jawn-frn";
+          tn = "Kalles Kaviar";
+          ln = "Teknik";
         }
         if(mattedag && mattetimme) {
           link = "https://meet.google.com/wkf-bbxo-fjv";
+          tn = "Björn";
+          ln = "Matte";
         }
 
          if(svenskadag && svenskatimme) {
           link = "https://meet.google.com/zoc-xsea-ghi";
+          tn = "Pontus";
+          ln = "Svenska";
         }
 
          if(samhallskunskapdag && samhallskunskaptimme) {
           link = "https://meet.google.com/pwg-znqn-ebe";
+          tn = "Uffe";
+          ln = "Samhällskunskap";
         }
 
          if(historiadag && historiatimme) {
           link = "https://meet.google.com/nih-octd-scd";
+          tn = "Uffe";
+          ln = "Historia";
         }
 
          if(engelskadag && engelskatimme) {
           link = "https://meet.google.com/vqn-zyxk-vme";
+          tn = "Eirina";
+          ln = "Engurish";
         }
 
          if(mentorstiddag && mentorstidtimme) {
           link = "https://meet.google.com/iqp-evan-hir";
+          tn = "Ulrika";
+          ln = "Mentorstid";
         }
 
         //link = "https://meet.google.com/iqp-evan-hir?authuser=1";
         //alert(link);
         document.getElementById("meetlink").innerHTML = link;
+        document.getElementById("TN").innerHTML = tn;
+        document.getElementById("LN").innerHTML = ln;
       }
 
 
     </script>
+    <div class="alert alert-warning alert-dismissible" style="text-align:center;">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Varning!</strong> VAR UPPMERKSAM PÅ TIDEN! Klicka på info knappen för mer information.
+    </div>
     <h1 style="text-align:center; padding-top:30px;">TE19B Online Klasser</h1>
-
     <div class="container" style="padding-top:30px;">
       <div class="card">
         <div class="card-header bg-dark" style="color:white;">
           <div class="row">
-            <h3 style="float:left">Nästa/Nuvarande klass</h3> <button style="float:right;"class=" btn btn-info" type="button" name="button" onclick="classRedirect()">updatera</button>
+            <div class="col-sm-9 col-12">
+                  <h3 style="float:left">Nästa/Nuvarande klass</h3>
+            </div>
+            <div class="col-sm-2 col-12">
+                 <button style="float:right;"class=" btn btn-info" type="button" name="button" onclick="classRedirect()">updatera</button>
+            </div>
+            <div class="col-sm-1 col-12">
+                 <button style="float:right;"class=" btn btn-warning" type="button" name="button" data-toggle="collapse" data-target="#infoCol">Info</button>
+            </div>
           </div>
         </div>
         <div class="card-body">
@@ -278,11 +307,19 @@
           </thead>
           <tbody>
           <tr>
-          <td>n/a</td>
-          <td>n/a</td>
+          <td id="LN">n/a</td>
+          <td id="TN">n/a</td>
           <td id="meetlink">Loading</td>
           </tr>
         </table>
+          <div id="infoCol" class="collapse" style="color:black;">
+            <h6>Infomration:</h6>
+            <p>VAR UPPMERKSAM PÅ TIDEN! Detta är det vi vill säga. Eftersom vi bara byter länken timmvis kan det resultera i att länken är bytt under en lektion eller att den bara byts ett par minuter innan lektionen börjar, så var UPPMERKSAM.</p>
+            <p>Om den säger "Undefined" betyder det att länken har bytts till en timme där ingen lektion är planerad att börja, det kan exempelvis vara lunch, morgon eller kväll. </p>
+
+            <h6>Bugg raportering:</h6>
+            <p>Då denna sida är i BETA det kan komma att finnas buggar. Om det upkommer kontakta Erik eller Viktor via discord.</p>
+          </div>
         </div>
       </div>
 
@@ -318,14 +355,27 @@
         <td>Uffe</td>
         <td>https://meet.google.com/nih-octd-scd</td>
         </tr>
-        <td>Samhälskunskap</td>
+        <tr>
+        <td>Samhällskunskap</td>
         <td>Uffe</td>
         <td>https://meet.google.com/nih-octd-scd</td>
         </tr>
+        <tr>
         <td>Svenska</td>
         <td>Pontus</td>
         <td>https://meet.google.com/zoc-xsea-ghi</td>
         </tr>
+        <tr>
+        <td>Engelska</td>
+        <td>Eirina</td>
+        <td>https://meet.google.com/vqn-zyxk-vme</td>
+        </tr>
+        <tr>
+        <td>Mentorstid</td>
+        <td>Ulrika</td>
+        <td>https://meet.google.com/iqp-evan-hir</td>
+        </tr>
+        <tr>
         <td>Idrott</td>
         <td>Micke</td>
         <td>N/A</td>
