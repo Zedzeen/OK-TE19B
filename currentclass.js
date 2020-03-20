@@ -103,10 +103,16 @@ function classRedirect() {
     har[HISTORIA] = false;
     har[ENGELSKA] = false;
     har[MENTOR]   = false;
+    har[IDROTT]   = true;
 
-    /*
-    Vilka lektioner har vi på Onsdag?
-    */
+    lektionStart[MATTE]   = 8
+    lektionEnd[MATTE]     = 9
+
+    lektionStart[SVENSKA] = 9
+    lektionEnd[SVENSKA]   = 11
+
+    lektionStart[IDROTT]  = 13
+    lektionEnd[IDROTT]    = 14
 
     break;
 
@@ -165,21 +171,21 @@ function classRedirect() {
   var ln, tn , link, goto;
 
   if (lektion != RAST){
-    ln   = KLASSINFO[lektion][LECTURE];
-    tn   = KLASSINFO[lektion][TEACHER];
+    lecture   = KLASSINFO[lektion][LECTURE];
+    teacher   = KLASSINFO[lektion][TEACHER];
     link = KLASSINFO[lektion][LINK];
-    if (link == "Finns ingen än") link = null;
-    goto = "Gå till " + ln + " lektionen";
+    //if (link == "Finns ingen än") link = null;
+    goto = "Gå till " + ln + " meet";
   } else {
-    ln   = RASTINFO[LECTURE];
-    tn   = RASTINFO[TEACHER];
-    link = RASTINFO[LINK];
-    goto = "Gå på rast";
+    lecture   = RASTINFO[LECTURE];
+    teacher   = RASTINFO[TEACHER];
+    link      = RASTINFO[LINK];
+    goto      = "Gå på rast";
   }
-  document.getElementById("link").innerHTML = link;
-  document.getElementById("TN").innerHTML   = tn;
-  document.getElementById("LN").innerHTML   = ln;
-  document.getElementById("GOTO").innerHTML = goto;
+  document.getElementById("lecture").innerHTML  = lecture;
+  document.getElementById("teacher").innerHTML  = teacher;
+  document.getElementById("link").innerHTML     = link;
+  document.getElementById("GOTO").innerHTML     = goto;
 
 
   //Set all of class lists
