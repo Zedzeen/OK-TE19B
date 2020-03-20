@@ -1,5 +1,7 @@
 function classRedirect() {
   var link;
+  var tn;
+  var ln;
 
   var teknikdag = false;
   var mattedag = false;
@@ -16,7 +18,6 @@ function classRedirect() {
   var historiatimme = false;
   var engelskatimme = false;
   var mentorstidtimme = false;
-
   var time = new Date();
   var currentDay = time.getDay();
   var currentHour = time.getHours();
@@ -187,33 +188,48 @@ function classRedirect() {
 
   if(teknikdag && tekniktimme) {
     link = "https://meet.google.com/kzd-jawn-frn";
+    tn = "Kalles Kaviar";
+    ln = "Teknik";
   }
-
   if(mattedag && mattetimme) {
     link = "https://meet.google.com/wkf-bbxo-fjv";
+    tn = "Björn";
+    ln = "Matte";
   }
 
-  if(svenskadag && svenskatimme) {
+   if(svenskadag && svenskatimme) {
     link = "https://meet.google.com/zoc-xsea-ghi";
+    tn = "Pontus";
+    ln = "Svenska";
   }
 
-  if(samhallskunskapdag && samhallskunskaptimme) {
+   if(samhallskunskapdag && samhallskunskaptimme) {
     link = "https://meet.google.com/pwg-znqn-ebe";
+    tn = "Uffe";
+    ln = "Samhällskunskap";
   }
 
-  if(historiadag && historiatimme) {
+   if(historiadag && historiatimme) {
     link = "https://meet.google.com/nih-octd-scd";
+    tn = "Uffe";
+    ln = "Historia";
   }
 
-  if(engelskadag && engelskatimme) {
+   if(engelskadag && engelskatimme) {
     link = "https://meet.google.com/vqn-zyxk-vme";
+    tn = "Eirina";
+    ln = "Engurish";
   }
 
-  if(mentorstiddag && mentorstidtimme) {
+   if(mentorstiddag && mentorstidtimme) {
     link = "https://meet.google.com/iqp-evan-hir";
+    tn = "Ulrika";
+    ln = "Mentorstid";
   }
 
-
+  //link = "https://meet.google.com/iqp-evan-hir?authuser=1";
+  //alert(link);
+  document.getElementById("meetlink").innerHTML = link;
+  document.getElementById("TN").innerHTML = tn;
+  document.getElementById("LN").innerHTML = ln;
 }
-
-classRedirect();
