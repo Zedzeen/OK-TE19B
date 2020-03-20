@@ -8,6 +8,7 @@ function classRedirect() {
   var link;
   var tn;
   var ln;
+  var goto;
 
   const RAST     = 0;
   const TEKNIK   = 1;
@@ -163,14 +164,17 @@ function classRedirect() {
     link = KLASSINFO[lektion][0];
     tn   = KLASSINFO[lektion][1];
     ln   = KLASSINFO[lektion][2];
+    goto = "Gå till " + ln + "s lektion";
   } else {
     link = RASTINFO[0];
     tn   = RASTINFO[1];
     ln   = RASTINFO[2];
+    goto = "Gå på rast";
   }
   document.getElementById("meetlink").innerHTML = link;
   document.getElementById("TN").innerHTML = tn;
   document.getElementById("LN").innerHTML = ln;
+  document.getElementById("GOTO").innerHTML = goto;
 
 
   //Set all of class lists
@@ -180,6 +184,6 @@ function classRedirect() {
     document.getElementById("teacherId"+i).innerHTML = KLASSINFO[i][1];
     document.getElementById("lektionId"+i).innerHTML = KLASSINFO[i][2];
   }
-  
+
   return link;
 }

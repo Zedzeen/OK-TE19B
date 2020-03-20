@@ -55,7 +55,7 @@
                   <h3 style="float:left">Nästa/Nuvarande klass</h3>
             </div>
             <div class="col-sm-2 col-12">
-                 <button style="float:right;"class=" btn btn-info" type="button" name="button" onclick="r">Updatera</button>
+                 <button style="float:right;"class=" btn btn-info" type="button" name="button" onclick="classRedirect()">Updatera</button>
             </div>
             <div class="col-sm-1 col-12">
                  <button style="float:right;"class=" btn btn-warning" type="button" name="button" data-toggle="collapse" data-target="#infoCol">Info</button>
@@ -77,7 +77,7 @@
           <td id="LN">n/a</td>
           <td id="TN">n/a</td>
           <td id="meetlink">Loading</td>
-          <td><button class="btn btn-danger" onclick="changeLink()">Gå till meet</button></td>
+          <td><button class="btn btn-danger" onclick="changeLink()" id="GOTO"></button></td>
 
           </tr>
         </table>
