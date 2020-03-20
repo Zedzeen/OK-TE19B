@@ -1,4 +1,21 @@
+
+
+const RAST     = 0;
+const TEKNIK   = 1;
+const MATTE    = 2;
+const SVENSKA  = 3;
+const SAM      = 4;
+const HISTORIA = 5;
+const ENGELSKA = 6;
+const MENTOR   = 7;
+const IDROTT   = 8;
+
+const LECTURE = 0;
+const TEACHER = 1;
+const LINK    = 2;
+
 const KLASSINFO = [
+  ["Rast", "Discord", "https://discord.gg/AZRdg4"],
   ["Teknik","Kalles Kaviar","https://meet.google.com/toh-xdmy-kwd"],
   ["Matte", "Björn", "https://meet.google.com/wkf-bbxo-fjv"],
   ["Svenska", "Pontus", "https://meet.google.com/zoc-xsea-ghi"],
@@ -8,7 +25,6 @@ const KLASSINFO = [
   ["Mentorstid", "Ulrika", "https://meet.google.com/iqp-evan-hir"],
   ["Idrott", "Micke", "Finns ingen än"]
 ];
-
 
 function changeLink(url) {
   url = classRedirect();
@@ -21,39 +37,19 @@ function manRedirect(url) {
   tab.focus();
 }
 
-
 function classRedirect() {
-  const RAST     = 0;
-  const TEKNIK   = 1;
-  const MATTE    = 2;
-  const SVENSKA  = 3;
-  const SAM      = 4;
-  const HISTORIA = 5;
-  const ENGELSKA = 6;
-  const MENTOR   = 7;
-  const IDROTT   = 8;
-
-  const LECTURE = 0;
-  const TEACHER = 1;
-  const LINK    = 2;
-
-  const RASTINFO = ["Rast", "Discord", "https://discord.gg/AZRdg4"];
 
   //teknik, matte, svenska, sam, historia, engelska, mentorstid
   var har = [];
   var lektionStart = [];
   var lektionEnd   = [];
-  var lektion;
-
-  var time = new Date();
-  var currentDay = time.getDay();
-  var currentHour = time.getHours();
 
   var time = new Date();
   var currentDay = time.getDay();
   var currentHour = time.getHours();
 
   switch(currentDay) {
+    
     default:
     for (var i = 0; i<har.length; i++){
       har[i] = false;
@@ -61,6 +57,7 @@ function classRedirect() {
       lektionEnd[i] = 0;
     }
     break;
+
     case 1:
     har[TEKNIK]  = true;
     har[MATTE]   = false;
@@ -170,37 +167,31 @@ function classRedirect() {
     break;
   }
 
+  var lektion = RAST;
   for (var i = 0; i<lektionStart.length; i++){
     if (currentHour >= lektionStart[i] && currentHour <= lektionEnd[i]) lektion = i;
-    else lektion = RAST;
   }
 
-  var ln, tn , link, goto;
+  var ln, tn , link, goTo;
 
-  if (lektion != RAST){
-    lecture   = KLASSINFO[lektion][LECTURE];
-    teacher   = KLASSINFO[lektion][TEACHER];
-    link = KLASSINFO[lektion][LINK];
-    //if (link == "Finns ingen än") link = null;
-    goto = "Gå till " + ln + " meet";
-  } else {
-    lecture   = RASTINFO[LECTURE];
-    teacher   = RASTINFO[TEACHER];
-    link      = RASTINFO[LINK];
-    goto      = "Gå på rast";
-  }
+  lecture   = KLASSINFO[lektion][LECTURE];
+  teacher   = KLASSINFO[lektion][TEACHER];
+  link      = KLASSINFO[lektion][LINK];
+  if (lektion == RAST) goTo = "Gå på rast";
+  else goTo = "Gå till " + lecture + " meet";
+
   document.getElementById("lecture").innerHTML  = lecture;
   document.getElementById("teacher").innerHTML  = teacher;
   document.getElementById("link").innerHTML     = link;
-  document.getElementById("GOTO").innerHTML     = goto;
+  document.getElementById("GOTO").innerHTML     = goTo;
 
 
   //Set all of class lists
-  var antalLektioner = 7;
-  for (var i = 0; i<antalLektioner+1; i++){
-    document.getElementById("lektionId"+i).innerHTML = KLASSINFO[i][LECTURE];
-    document.getElementById("teacherId"+i).innerHTML = KLASSINFO[i][TEACHER];
-    document.getElementById("linkId"+i).innerHTML    = KLASSINFO[i][LINK];
+  var antalLektioner = 8;
+  for (var i = 0; i<antalLektioner; i++){
+    document.getElementById("lektionId"+i).innerHTML = KLASSINFO[i+1][LECTURE];
+    document.getElementById("teacherId"+i).innerHTML = KLASSINFO[i+1][TEACHER];
+    document.getElementById("linkId"+i).innerHTML    = KLASSINFO[i+1][LINK];
   }
 
   return link;
