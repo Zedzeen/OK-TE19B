@@ -1,8 +1,26 @@
+const KLASSINFO = [
+  ["Teknik","Kalles Kaviar","https://meet.google.com/toh-xdmy-kwd"],
+  ["Matte", "Björn", "https://meet.google.com/wkf-bbxo-fjv"],
+  ["Svenska", "Pontus", "https://meet.google.com/zoc-xsea-ghi"],
+  ["Samhällskunskap", "Uffe", "https://meet.google.com/nih-octd-scd"],
+  ["Historia", "Uffe", "https://meet.google.com/nih-octd-scd",],
+  ["Engelska", "Erina", "https://meet.google.com/vqn-zyxk-vme"],
+  ["Mentorstid", "Ulrika", "https://meet.google.com/iqp-evan-hir"],
+  ["Idrott", "Micke", "Finns ingen än"]
+];
+
+
 function changeLink(url) {
   url = classRedirect();
   var tab = window.open(url, '_blank');
   tab.focus();
 }
+
+function manRedirect(url) {
+  var tab = window.open(KLASSINFO[url][2], '_blank');
+  tab.focus();
+}
+
 
 function classRedirect() {
   const RAST     = 0;
@@ -18,17 +36,6 @@ function classRedirect() {
   const LECTURE = 0;
   const TEACHER = 1;
   const LINK    = 2;
-
-  const KLASSINFO = [
-    ["Teknik","Kalles Kaviar","https://meet.google.com/toh-xdmy-kwd"],
-    ["Matte", "Björn", "https://meet.google.com/wkf-bbxo-fjv"],
-    ["Svenska", "Pontus", "https://meet.google.com/zoc-xsea-ghi"],
-    ["Samhällskunskap", "Uffe", "https://meet.google.com/nih-octd-scd"],
-    ["Historia", "Uffe", "https://meet.google.com/nih-octd-scd",],
-    ["Engelska", "Erina", "https://meet.google.com/vqn-zyxk-vme"],
-    ["Mentorstid", "Ulrika", "https://meet.google.com/iqp-evan-hir"],
-    ["Idrott", "Micke", "Finns ingen än"]
-  ];
 
   const RASTINFO = ["Rast", "Discord", "https://discord.gg/AZRdg4"];
 
