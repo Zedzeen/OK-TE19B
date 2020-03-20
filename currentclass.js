@@ -1,239 +1,167 @@
 function changeLink(url) {
-  url = classRedirect();
-  var win = window.open(url, '_blank');
-  win.focus();
+    url = classRedirect();
+    var tab = window.open(url, '_blank');
+    tab.focus();
 }
 
 function classRedirect() {
-  var link = "https://discord.gg/AZRdg4";
-  var tn = "Discord";
-  var ln = "Rast";
+    var link;
+    var tn;
+    var ln;
 
-  var teknikdag = false;
-  var mattedag = false;
-  var svenskadag = false;
-  var samhallskunskapdag = false;
-  var historiadag = false;
-  var engelskadag = false;
-  var mentorstiddag = false;
+    const RAST     = 0;
+    const TEKNIK   = 1;
+    const MATTE    = 2;
+    const SVENSKA  = 3;
+    const SAM      = 4;
+    const HISTORIA = 5;
+    const ENGELSKA = 6;
+    const MENTOR   = 7;
+    const IDROTT   = 8;
 
-  var tekniktimme = false;
-  var mattetimme = false;
-  var svenskatimme = false;
-  var samhallskunskaptimme = false;
-  var historiatimme = false;
-  var engelskatimme = false;
-  var mentorstidtimme = false;
-  
-  var time = new Date();
-  var currentDay = time.getDay();
-  var currentHour = time.getHours();
+    const KLASSINFO = [
+    ["https://discord.gg/AZRdg4", "Discord", "Rast"],
+    ["https://meet.google.com/toh-xdmy-kwd", "Kalles Ka", "Teknik"],
+    ["https://meet.google.com/wkf-bbxo-fjv", "Björn", "Matte"],
+    ["https://meet.google.com/zoc-xsea-ghi", "Pontus", "Svenska"],
+    ["https://meet.google.com/nih-octd-scd", "Uffe", "Samhällskunskap"],
+    ["https://meet.google.com/nih-octd-scd", "Uffe", "Historia"],
+    ["https://meet.google.com/vqn-zyxk-vme", "Erina", "Engelska"],
+    ["https://meet.google.com/iqp-evan-hir", "Ulrika", "Mentorstid"],
+    ["Finns ingen än", "Micke", "Idrott"]
+    ];
 
-  switch(currentDay) {
-    case 0:
+    //teknik, matte, svenska, sam, historia, engelska, mentorstid
+    var har = [];
+    var lektionStart = [];
+    var lektionEnd   = [];
+    var lektion;
+
+    var time = new Date();
+    var currentDay = time.getDay();
+    var currentHour = time.getHours();
+
+    switch(currentDay) {
+
+    default:
+        for (var i = 0; i<har.length; i++){
+            har[i] = false;
+            lektionStart[i] = 0;
+            lektionEnd[i] = 0;
+        }
+        break;
+
     case 1:
-      teknikdag = true;
-      mattedag = false;
-      svenskadag = false;
-      samhallskunskapdag = true;
-      historiadag = false;
-      engelskadag = false;
-      mentorstiddag = false;
-      break;
+        har[TEKNIK]  = true;
+        har[MATTE]   = false;
+        har[SVENSKA] = false;
+        har[SAM]     = true;
+        har[HISTORIA]= false;
+        har[ENGELSKA]= false;
+        har[MENTOR]  = false;
+        har[IDROTT]  = true;
+
+        lektionStart[TEKNIK] = 8;
+        lektionEnd[TEKNIK]   = 9;
+
+        lektionStart[IDROTT] = 10;
+        lektionEnd[IDROTT]   = 11;
+
+        lektionStart[SAM]    = 12;
+        lektionEnd[SAM]      = 13;
+
+        break;
     case 2:
-      teknikdag = true;
-      mattedag = true;
-      svenskadag = true;
-      samhallskunskapdag = false;
-      historiadag = false;
-      engelskadag = false;
-      mentorstiddag = false;
-      break;
+        har[TEKNIK]  = true;
+        har[MATTE]   = true;
+        har[SVENSKA] = true;
+        har[SAM]     = false;
+        har[HISTORIA]= false;
+        har[ENGELSKA]= false;
+        har[MENTOR]  = false;
+
+        lektionStart[TEKNIK]  = 9;
+        lektionEnd[TEKNIK]    = 11;
+
+        lektionStart[SVENSKA] = 12;
+        lektionEnd[SVENSKA]   = 13;
+
+        lektionStart[MATTE]   = 13;
+        lektionEnd[MATTE]     = 16;
+
+        break;
     case 3:
-      teknikdag = false;
-      mattedag = true;
-      svenskadag = true;
-      samhallskunskapdag = false;
-      historiadag = false;
-      engelskadag = false;
-      mentorstiddag = false;
-      break;
+        har[TEKNIK]  = false;
+        har[MATTE]   = true;
+        har[SVENSKA] = true;
+        har[SAM]     = false;
+        har[HISTORIA]= false;
+        har[ENGELSKA]= false;
+        har[MENTOR]  = false;
+
+        /*
+        Vilka lektioner har vi på Onsdag?
+        */
+
+        break;
     case 4:
-      teknikdag = true;
-      mattedag = false;
-      svenskadag = false;
-      samhallskunskapdag = true;
-      historiadag = true;
-      engelskadag = true;
-      mentorstiddag = false;
-      break;
+        har[TEKNIK]  = true;
+        har[MATTE]   = false;
+        har[SVENSKA] = false;
+        har[SAM]     = true;
+        har[HISTORIA]= true;
+        har[ENGELSKA]= true;
+        har[MENTOR]  = false;
+
+        lektionStart[HISTORIA] = 9;
+        lektionEnd[HISTORIA]   = 11;
+
+        lektionStart[SAM]      = 12;
+        lektionEnd[SAM]        = 13;
+
+        lektionStart[ENGELSKA] = 13;
+        lektionEnd[ENGELSKA]   = 15;
+
+        lektionStart[TEKNIK]   = 15;
+        lektionEnd[TEKNIK]     = 16;
+
+        break;
+
     case 5:
-      teknikdag = false;
-      mattedag = true;
-      svenskadag = false;
-      samhallskunskapdag = false;
-      historiadag = true;
-      engelskadag = true;
-      mentorstiddag = true;
-      break;
-    case 6:
-      teknikdag = false;
-      mattedag = false;
-      svenskadag = false;
-      samhallskunskapdag = false;
-      historiadag = false;
-      engelskadag = false;
-      mentorstiddag = false;
-      break;
-  }
+        har[TEKNIK]  = false;
+        har[MATTE]   = true;
+        har[SVENSKA] = false;
+        har[SAM]     = false;
+        har[HISTORIA]= true;
+        har[ENGELSKA]= true;
+        har[MENTOR]  = true;
 
-  switch(currentHour) {
-    default: 
-      break;
-    
-    case 23:
-      tekniktimme = false;
-      mattetimme = false;
-      svenskatimme = false;
-      samhallskunskaptimme = false;
-      historiatimme = false;
-      engelskatimme = false;
-      mentorstidtimme = false;
-      break;
-    case 8:
-      tekniktimme = true;
-      mattetimme = true;
-      svenskatimme = false;
-      samhallskunskaptimme = false;
-      historiatimme = false;
-      engelskatimme = false;
-      mentorstidtimme = false;
-      break;
-    case 9:
-      tekniktimme = true;
-      mattetimme = true;
-      svenskatimme = true;
-      samhallskunskaptimme = false;
-      historiatimme = true;
-      engelskatimme = false;
-      mentorstidtimme = false;
-    case 10:
-      tekniktimme = true;
-      mattetimme = false;
-      svenskatimme = true;
-      samhallskunskaptimme = false;
-      historiatimme = true;
-      engelskatimme = false;
-      mentorstidtimme = false;
-      break;
-    case 11:
-      tekniktimme = true;
-      mattetimme = false;
-      svenskatimme = true;
-      samhallskunskaptimme = false;
-      historiatimme = false;
-      engelskatimme = false;
-      mentorstidtimme = false;
-      break;
-    case 12:
-      tekniktimme = false;
-      mattetimme = false;
-      svenskatimme = true;
-      samhallskunskaptimme = true;
-      historiatimme = false;
-      engelskatimme = false;
-      mentorstidtimme = true;
-      break;
-    case 13:
-      tekniktimme = false;
-      mattetimme = false;
-      svenskatimme = true;
-      samhallskunskaptimme = true;
-      historiatimme = false;
-      engelskatimme = true;
-      mentorstidtimme = true;
-      break;
-    case 14:
-      tekniktimme = false;
-      mattetimme = true;
-      svenskatimme = false;
-      samhallskunskaptimme = false;
-      historiatimme = false;
-      engelskatimme = true;
-      mentorstidtimme = false;
-      break;
-    case 15:
-      tekniktimme = true;
-      mattetimme = true;
-      svenskatimme = false;
-      samhallskunskaptimme = false;
-      historiatimme = false;
-      engelskatimme = false;
-      mentorstidtimme = false;
-      break;
-    case 16:
-      tekniktimme = true;
-      mattetimme = true;
-      svenskatimme = false;
-      samhallskunskaptimme = false;
-      historiatimme = false;
-      engelskatimme = false;
-      mentorstidtimme = false;
-      break;
-  }
+        lektionStart[MATTE]    = 8;
+        lektionEnd[MATTE]      = 9;
 
-  if(teknikdag && tekniktimme) {
-    link = "https://meet.google.com/toh-xdmy-kwd";
-    tn = "Kalles Kaviar";
-    ln = "Teknik";
-  }
+        lektionStart[HISTORIA] = 10;
+        lektionEnd[HISTORIA]   = 11;
 
-  if(mattedag && mattetimme) {
-    link = "https://meet.google.com/wkf-bbxo-fjv";
-    tn = "Björn";
-    ln = "Matte";
-  }
+        lektionStart[MENTOR]   = 12;
+        lektionEnd[MENTOR]     = 13;
 
-   if(svenskadag && svenskatimme) {
-    link = "https://meet.google.com/zoc-xsea-ghi";
-    tn = "Pontus";
-    ln = "Svenska";
-  }
+        lektionStart[ENGELSKA] = 13;
+        lektionEnd[ENGELSKA]   = 15;
 
-   if(samhallskunskapdag && samhallskunskaptimme) {
-    link = "https://meet.google.com/pwg-znqn-ebe";
-    tn = "Uffe";
-    ln = "Samhällskunskap";
-  }
+        break;
+    }
 
-   if(historiadag && historiatimme) {
-    link = "https://meet.google.com/nih-octd-scd";
-    tn = "Uffe";
-    ln = "Historia";
-  }
+    for (var i = 0; i<lektionStart.length; i++){
+        if (currentHour >= lektionStart[i] && currentHour <= lektionEnd[i]) lektion = i;
+        else lektion = RAST;
+    }
 
-   if(engelskadag && engelskatimme) {
-    link = "https://meet.google.com/vqn-zyxk-vme";
-    tn = "Eirina";
-    ln = "Engurish";
-  }
+link = KLASSINFO[lektion][0];
+tn   = KLASSINFO[lektion][1];
+ln   = KLASSINFO[lektion][2];
 
-   if(mentorstiddag && mentorstidtimme) {
-    link = "https://meet.google.com/iqp-evan-hir";
-    tn = "Ulrika";
-    ln = "Mentorstid";
-  }
-  
-  else {
-     link = "https://discord.gg/AZRdg4";
-     tn = "Discord";
-     ln = "Rast";
-  }
-
-  //link = "https://meet.google.com/iqp-evan-hir?authuser=1";
-  //alert(link);
-  document.getElementById("meetlink").innerHTML = link;
-  document.getElementById("TN").innerHTML = tn;
-  document.getElementById("LN").innerHTML = ln;
-  return link;
+document.getElementById("meetlink").innerHTML = link;
+document.getElementById("TN").innerHTML = tn;
+document.getElementById("LN").innerHTML = ln;
+return link;
 }
