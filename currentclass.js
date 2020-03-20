@@ -1,6 +1,12 @@
+function changeLink(url) {
+  url = classRedirect();
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+
 function classRedirect() {
-  var link = "Discord";
-  var tn = "Solaf";
+  var link = "https://discord.gg/AZRdg4";
+  var tn = "Discord";
   var ln = "Rast";
 
   var teknikdag = false;
@@ -18,21 +24,13 @@ function classRedirect() {
   var historiatimme = false;
   var engelskatimme = false;
   var mentorstidtimme = false;
+  
   var time = new Date();
   var currentDay = time.getDay();
   var currentHour = time.getHours();
 
   switch(currentDay) {
     case 0:
-    case 6:
-      teknikdag = false;
-      mattedag = false;
-      svenskadag = false;
-      samhallskunskapdag = false;
-      historiadag = false;
-      engelskadag = false;
-      mentorstiddag = false;
-      break;
     case 1:
       teknikdag = true;
       mattedag = false;
@@ -78,23 +76,21 @@ function classRedirect() {
       engelskadag = true;
       mentorstiddag = true;
       break;
+    case 6:
+      teknikdag = false;
+      mattedag = false;
+      svenskadag = false;
+      samhallskunskapdag = false;
+      historiadag = false;
+      engelskadag = false;
+      mentorstiddag = false;
+      break;
   }
 
   switch(currentHour) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 17:
-    case 18:
-    case 19:
-    case 20:
-    case 21:
-    case 22:
+    default: 
+      break;
+    
     case 23:
       tekniktimme = false;
       mattetimme = false;
@@ -233,4 +229,5 @@ function classRedirect() {
   document.getElementById("meetlink").innerHTML = link;
   document.getElementById("TN").innerHTML = tn;
   document.getElementById("LN").innerHTML = ln;
+  return link;
 }

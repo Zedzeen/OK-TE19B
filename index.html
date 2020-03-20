@@ -36,6 +36,9 @@
 
 
   </head>
+
+
+</script>
   <body style="width:99.99%;" onload="classRedirect()">
     <script type="text/javascript" src="currentclass.js"></script>
     <div class="alert alert-warning alert-dismissible" style="text-align:center;">
@@ -51,7 +54,7 @@
                   <h3 style="float:left">Nästa/Nuvarande klass</h3>
             </div>
             <div class="col-sm-2 col-12">
-                 <button style="float:right;"class=" btn btn-info" type="button" name="button" onclick="classRedirect()">updatera</button>
+                 <button style="float:right;"class=" btn btn-info" type="button" name="button" onclick="r">updatera</button>
             </div>
             <div class="col-sm-1 col-12">
                  <button style="float:right;"class=" btn btn-warning" type="button" name="button" data-toggle="collapse" data-target="#infoCol">Info</button>
@@ -65,6 +68,7 @@
           <th>Klass</th>
           <th>Lärare</th>
           <th>Meet</th>
+          <th>Redirect [Exprimentiel]</th>
           </tr>
           </thead>
           <tbody>
@@ -72,6 +76,8 @@
           <td id="LN">n/a</td>
           <td id="TN">n/a</td>
           <td id="meetlink">Loading</td>
+          <td><button class="btn btn-danger" onclick="changeLink()">Replace document</button></td>
+
           </tr>
         </table>
           <div id="infoCol" class="collapse" style="color:black;">
@@ -111,7 +117,7 @@
         <tr>
         <td>Teknik</td>
         <td>Kalles kaviar</td>
-        <td>Kommer snart</td>
+        <td>https://meet.google.com/toh-xdmy-kwd</td>
         </tr>
         <tr>
         <td>Historia</td>
