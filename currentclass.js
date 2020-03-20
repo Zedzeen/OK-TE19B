@@ -41,8 +41,11 @@ function classRedirect() {
     var currentDay = time.getDay();
     var currentHour = time.getHours();
 
-    switch(currentDay) {
+    var time = new Date();
+    var currentDay = time.getDay();
+    var currentHour = time.getHours();
 
+    switch(currentDay) {
     default:
         for (var i = 0; i<har.length; i++){
             har[i] = false;
@@ -50,7 +53,6 @@ function classRedirect() {
             lektionEnd[i] = 0;
         }
         break;
-
     case 1:
         har[TEKNIK]  = true;
         har[MATTE]   = false;
@@ -156,12 +158,12 @@ function classRedirect() {
         else lektion = RAST;
     }
 
-link = KLASSINFO[lektion][0];
-tn   = KLASSINFO[lektion][1];
-ln   = KLASSINFO[lektion][2];
+    link = KLASSINFO[lektion][0];
+    tn   = KLASSINFO[lektion][1];
+    ln   = KLASSINFO[lektion][2];
 
-document.getElementById("meetlink").innerHTML = link;
-document.getElementById("TN").innerHTML = tn;
-document.getElementById("LN").innerHTML = ln;
-return link;
+    document.getElementById("meetlink").innerHTML = link;
+    document.getElementById("TN").innerHTML = tn;
+    document.getElementById("LN").innerHTML = ln;
+    return link;
 }
