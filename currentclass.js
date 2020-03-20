@@ -151,7 +151,7 @@ function classRedirect() {
       samhallskunskaptimme = true;
       historiatimme = false;
       engelskatimme = true;
-      mentorstidtimme = true;
+      mentorstidtimme = false;
       break;
     case 14:
       tekniktimme = false;
