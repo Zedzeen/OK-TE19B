@@ -5,11 +5,6 @@ function changeLink(url) {
 }
 
 function classRedirect() {
-  var link;
-  var tn;
-  var ln;
-  var goto;
-
   const RAST     = 0;
   const TEKNIK   = 1;
   const MATTE    = 2;
@@ -20,18 +15,22 @@ function classRedirect() {
   const MENTOR   = 7;
   const IDROTT   = 8;
 
+  const LECTURE = 0;
+  const TEACHER = 1;
+  const LINK    = 2;
+
   const KLASSINFO = [
-    ["https://meet.google.com/toh-xdmy-kwd", "Kalles Kaviar", "Teknik"],
-    ["https://meet.google.com/wkf-bbxo-fjv", "Björn", "Matte"],
-    ["https://meet.google.com/zoc-xsea-ghi", "Pontus", "Svenska"],
-    ["https://meet.google.com/nih-octd-scd", "Uffe", "Samhällskunskap"],
-    ["https://meet.google.com/nih-octd-scd", "Uffe", "Historia"],
-    ["https://meet.google.com/vqn-zyxk-vme", "Erina", "Engelska"],
-    ["https://meet.google.com/iqp-evan-hir", "Ulrika", "Mentorstid"],
-    ["Finns ingen än", "Micke", "Idrott"]
+    ["Teknik","Kalles Kaviar","https://meet.google.com/toh-xdmy-kwd"],
+    ["Matte", "Björn", "https://meet.google.com/wkf-bbxo-fjv"],
+    ["Svenska", "Pontus", "https://meet.google.com/zoc-xsea-ghi"],
+    ["Samhällskunskap", "Uffe", "https://meet.google.com/nih-octd-scd"],
+    ["Historia", "Uffe", "https://meet.google.com/nih-octd-scd",],
+    ["Engelska", "Erina", "https://meet.google.com/vqn-zyxk-vme"],
+    ["Mentorstid", "Ulrika", "https://meet.google.com/iqp-evan-hir"],
+    ["Idrott", "Micke", "Finns ingen än"]
   ];
 
-  const RASTINFO = ["https://discord.gg/AZRdg4", "Discord", "Rast"];
+  const RASTINFO = ["Rast", "Discord", "https://discord.gg/AZRdg4"];
 
   //teknik, matte, svenska, sam, historia, engelska, mentorstid
   var har = [];
@@ -75,14 +74,15 @@ function classRedirect() {
     lektionEnd[SAM]      = 13;
 
     break;
+
     case 2:
-    har[TEKNIK]  = true;
-    har[MATTE]   = true;
-    har[SVENSKA] = true;
-    har[SAM]     = false;
-    har[HISTORIA]= false;
-    har[ENGELSKA]= false;
-    har[MENTOR]  = false;
+    har[TEKNIK]   = true;
+    har[MATTE]    = true;
+    har[SVENSKA]  = true;
+    har[SAM]      = false;
+    har[HISTORIA] = false;
+    har[ENGELSKA] = false;
+    har[MENTOR]   = false;
 
     lektionStart[TEKNIK]  = 9;
     lektionEnd[TEKNIK]    = 11;
@@ -94,20 +94,22 @@ function classRedirect() {
     lektionEnd[MATTE]     = 16;
 
     break;
+
     case 3:
-    har[TEKNIK]  = false;
-    har[MATTE]   = true;
-    har[SVENSKA] = true;
-    har[SAM]     = false;
-    har[HISTORIA]= false;
-    har[ENGELSKA]= false;
-    har[MENTOR]  = false;
+    har[TEKNIK]   = false;
+    har[MATTE]    = true;
+    har[SVENSKA]  = true;
+    har[SAM]      = false;
+    har[HISTORIA] = false;
+    har[ENGELSKA] = false;
+    har[MENTOR]   = false;
 
     /*
     Vilka lektioner har vi på Onsdag?
     */
 
     break;
+    
     case 4:
     har[TEKNIK]  = true;
     har[MATTE]   = false;
@@ -160,29 +162,31 @@ function classRedirect() {
     else lektion = RAST;
   }
 
+  var ln, tn , link, goto;
+
   if (lektion != RAST){
-    link = KLASSINFO[lektion][0];
-    tn   = KLASSINFO[lektion][1];
-    ln   = KLASSINFO[lektion][2];
-    goto = "Gå till " + ln + "s lektion";
+    ln   = KLASSINFO[lektion][LECTURE];
+    tn   = KLASSINFO[lektion][TEACHER];
+    link = KLASSINFO[lektion][LINK];
+    goto = "Gå till " + ln + " lektionen";
   } else {
-    link = RASTINFO[0];
-    tn   = RASTINFO[1];
-    ln   = RASTINFO[2];
+    ln   = RASTINFO[LECTURE];
+    tn   = RASTINFO[TEACHER];
+    link = RASTINFO[LINK];
     goto = "Gå på rast";
   }
-  document.getElementById("meetlink").innerHTML = link;
-  document.getElementById("TN").innerHTML = tn;
-  document.getElementById("LN").innerHTML = ln;
+  document.getElementById("link").innerHTML = link;
+  document.getElementById("TN").innerHTML   = tn;
+  document.getElementById("LN").innerHTML   = ln;
   document.getElementById("GOTO").innerHTML = goto;
 
 
   //Set all of class lists
   var antalLektioner = 7;
   for (var i = 0; i<antalLektioner+1; i++){
-    document.getElementById("linkId"+i).innerHTML    = KLASSINFO[i][0];
-    document.getElementById("teacherId"+i).innerHTML = KLASSINFO[i][1];
-    document.getElementById("lektionId"+i).innerHTML = KLASSINFO[i][2];
+    document.getElementById("lektionId"+i).innerHTML = KLASSINFO[i][LECTURE];
+    document.getElementById("teacherId"+i).innerHTML = KLASSINFO[i][TEACHER];
+    document.getElementById("linkId"+i).innerHTML    = KLASSINFO[i][LINK];
   }
 
   return link;
