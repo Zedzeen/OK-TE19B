@@ -24,7 +24,7 @@ function classRedirect() {
   var historiatimme = false;
   var engelskatimme = false;
   var mentorstidtimme = false;
-  
+
   var time = new Date();
   var currentDay = time.getDay();
   var currentHour = time.getHours();
@@ -88,9 +88,9 @@ function classRedirect() {
   }
 
   switch(currentHour) {
-    default: 
+    default:
       break;
-    
+
     case 23:
       tekniktimme = false;
       mattetimme = false;
@@ -187,43 +187,36 @@ function classRedirect() {
     tn = "Kalles Kaviar";
     ln = "Teknik";
   }
-
-  if(mattedag && mattetimme) {
+  else if(mattedag && mattetimme) {
     link = "https://meet.google.com/wkf-bbxo-fjv";
     tn = "Björn";
     ln = "Matte";
   }
-
-   if(svenskadag && svenskatimme) {
+   else if(svenskadag && svenskatimme) {
     link = "https://meet.google.com/zoc-xsea-ghi";
     tn = "Pontus";
     ln = "Svenska";
   }
-
-   if(samhallskunskapdag && samhallskunskaptimme) {
+   else if(samhallskunskapdag && samhallskunskaptimme) {
     link = "https://meet.google.com/pwg-znqn-ebe";
     tn = "Uffe";
     ln = "Samhällskunskap";
   }
-
-   if(historiadag && historiatimme) {
+   else if(historiadag && historiatimme) {
     link = "https://meet.google.com/nih-octd-scd";
     tn = "Uffe";
     ln = "Historia";
   }
-
-   if(engelskadag && engelskatimme) {
+   else if(engelskadag && engelskatimme) {
     link = "https://meet.google.com/vqn-zyxk-vme";
     tn = "Eirina";
     ln = "Engurish";
   }
-
-   if(mentorstiddag && mentorstidtimme) {
+   else if(mentorstiddag && mentorstidtimme) {
     link = "https://meet.google.com/iqp-evan-hir";
     tn = "Ulrika";
     ln = "Mentorstid";
   }
-  
   else {
      link = "https://discord.gg/AZRdg4";
      tn = "Discord";
