@@ -109,7 +109,7 @@ function classRedirect() {
     */
 
     break;
-    
+
     case 4:
     har[TEKNIK]  = true;
     har[MATTE]   = false;
@@ -168,6 +168,7 @@ function classRedirect() {
     ln   = KLASSINFO[lektion][LECTURE];
     tn   = KLASSINFO[lektion][TEACHER];
     link = KLASSINFO[lektion][LINK];
+    if (link == "Finns ingen än") link = null;
     goto = "Gå till " + ln + " lektionen";
   } else {
     ln   = RASTINFO[LECTURE];
