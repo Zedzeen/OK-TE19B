@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="twitter:" content="Online Klass TE19B, En lista på Google Länks till klasser, samt en funktion som automatiskt kollar vilken lektion man har och ger den korrekta länken för den.">
     <title>TE19B Klasser</title>
-          <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-      <!-- jQuery library -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-      <!-- Popper JS -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-      <!-- Latest compiled JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-      <!--
-      Matte:
-        https://Länk.google.com/wkf-bbxo-fjv
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!--
+Matte:
+https://Länk.google.com/wkf-bbxo-fjv
 
-        Teknik:
-        https://Länk.google.com/toh-xdmy-kwd
+Teknik:
+https://Länk.google.com/toh-xdmy-kwd
 
-        Engelska:
-        https://Länk.google.com/vqn-zyxk-vme
+Engelska:
+https://Länk.google.com/vqn-zyxk-vme
 
-        Historia/Sam:
-        https://Länk.google.com/nih-octd-scd
+Historia/Sam:
+https://Länk.google.com/nih-octd-scd
 
-        Svenska:
-        https://Länk.google.com/zoc-xsea-ghi
+Svenska:
+https://Länk.google.com/zoc-xsea-ghi
 
-        Idrott:
-        n/a
-    -->
+Idrott:
+n/a
+-->
 
-
-  </head>
-
+</head>
 
 </script>
-  <body style="width:99.99%;" onload="classRedirect()">
+
+<body style="width:99.99%;" onload="classRedirect()">
     <script type="text/javascript" src="currentclass.js"></script>
     <div class="alert alert-warning alert-dismissible" style="text-align:center;">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -48,129 +48,87 @@
     </div>
     <h1 style="text-align:center; padding-top:30px;">TE19B Online Klasser</h1>
     <div class="container" style="padding-top:30px;">
-      <div class="card">
-        <div class="card-header bg-dark" style="color:white;">
-          <div class="row">
-            <div class="col-sm-9 col-12">
-                  <h3 style="float:left">Nästa/Nuvarande klass</h3>
+        <div class="card">
+            <div class="card-header bg-dark" style="color:white;">
+                <div class="row">
+                    <div class="col-sm-9 col-12">
+                        <h3 style="float:left">Nästa/Nuvarande klass</h3>
+                    </div>
+                    <div class="col-sm-2 col-12">
+                        <button style="float:right;" class=" btn btn-info" type="button" name="button" onclick="classRedirect()">Updatera</button>
+                    </div>
+                    <div class="col-sm-1 col-12">
+                        <button style="float:right;" class=" btn btn-warning" type="button" name="button" data-toggle="collapse" data-target="#infoCol">Info</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-2 col-12">
-                 <button style="float:right;"class=" btn btn-info" type="button" name="button" onclick="classRedirect()">Updatera</button>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Klass</th>
+                            <th>Lärare</th>
+                            <th>Länk</th>
+                            <th>Redirect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="lecture"></td>
+                            <td id="teacher"></td>
+                            <td id="link"></td>
+                            <td><button class="btn btn-danger" onclick="changeLink()" id="GOTO"></button></td>
+
+                        </tr>
+                </table>
+                <div id="infoCol" class="collapse" style="color:black;">
+                    <h6>Information:</h6>
+                    <p>VAR UPPMÄRKSAM PÅ TIDEN! Eftersom redirect länken byts ut timvis kan det resultera i att den inte stämmer överens med vilken lektion det egentligen är. Därav finnes det manuella länkar längst ner på sidan.</p>
+
+                    <h6>Buggrapportering:</h6>
+                    <p>Denna sida är BETA, det kan komma att uppstå buggar. Ifall sådana finnes bör ni kontakta Erik, Viktor eller Junior via Discord omedelbums för att få problemet åtgärdat.</p>
+
+                </div>
             </div>
-            <div class="col-sm-1 col-12">
-                 <button style="float:right;"class=" btn btn-warning" type="button" name="button" data-toggle="collapse" data-target="#infoCol">Info</button>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="card">
+            <div class="card-header bg-dark" style="color:white;">
+                <h3>Lista på klasser och lärare</h3>
             </div>
-          </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Klass</th>
+                            <th>Lärare</th>
+                            <th>Länk</th>
+                            <th>Redirect</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table">
+                        <tr>
+                            <td id="lektionId0">Lektion</td>
+                            <td id="teacherId0">Namn</td>
+                            <td id="linkId0">Länk</td>
+                            <td><button class="btn btn-danger" onclick="manRedirect(1)" id="linkId0">Gå med</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="card-body">
-          <table class="table table-striped">
-          <thead>
-          <tr>
-          <th>Klass</th>
-          <th>Lärare</th>
-          <th>Länk</th>
-          <th>Redirect</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-          <td id="lecture"></td>
-          <td id="teacher"></td>
-          <td id="link"></td>
-          <td><button class="btn btn-danger" onclick="changeLink()" id="GOTO"></button></td>
-
-          </tr>
-        </table>
-          <div id="infoCol" class="collapse" style="color:black;">
-            <h6>Information:</h6>
-                        <p>VAR UPPMÄRKSAM PÅ TIDEN! Eftersom redirect länken byts ut timvis kan det resultera i att den inte stämmer överens med vilken lektion det egentligen är. Därav finnes det manuella länkar längst ner på sidan.</p>
-
-                        <h6>Buggrapportering:</h6>
-                        <p>Denna sida är BETA, det kan komma att uppstå buggar. Ifall sådana finnes bör ni kontakta Erik, Viktor eller Junior via Discord omedelbums för att få problemet åtgärdat.</p>
-
-          </div>
+        <br>
+        <br>
+        <div class="jumbotron text-center" style="margin-bottom:0; background-color:#343a40!important; color:white; ">
+            <p>Made by: Viktor Olsson, Erik Arvidson, Junior Rantila</p>
+            <p><svg height="16" class="octicon octicon-law text-light mr-2" viewBox="0 0 14 16" version="1.1" width="16" aria-hidden="true"><path fill="#fff" fill-rule="evenodd" d="M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"></path></svg>GNU General Public License v2.0</p>
+            <a href="https://github.com/voro282/OK-TE19B">https://github.com/voro282/OK-TE19B</a>
         </div>
-      </div>
-
-      <br>
-      <br>
-
-      <div class="card">
-        <div class="card-header bg-dark" style="color:white;">
-          <h3>Lista på klasser och lärare</h3>
-        </div>
-        <div class="card-body">
-        <table class="table table-striped">
-        <thead>
-        <tr>
-        <th>Klass</th>
-        <th>Lärare</th>
-        <th>Länk</th>
-        <th>Redirect</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td id="lektionId0">Lektion</td>
-        <td id="teacherId0">Namn</td>
-        <td id="linkId0">Länk</td>
-        <td><button class="btn btn-danger" onclick="manRedirect(1)" id="linkId0">Gå med</button></td>
-        </tr>
-        <tr>
-        <td id="lektionId1">Lektion</td>
-        <td id="teacherId1">Namn</td>
-        <td id="linkId1">Länk</td>
-        <td><button class="btn btn-danger" onclick="manRedirect(2)" id="linkId1">Gå med</button></td>
-        </tr>
-        <tr>
-        <td id="lektionId2">Lektion</td>
-        <td id="teacherId2">Namn</td>
-        <td id="linkId2">Länk</td>
-        <td><button class="btn btn-danger" onclick="manRedirect(3)" id="linkId2">Gå med</button></td>
-        </tr>
-        <tr>
-        <td id="lektionId3">Lektion</td>
-        <td id="teacherId3">Namn</td>
-        <td id="linkId3">Länk</td>
-        <td><button class="btn btn-danger" onclick="manRedirect(4)" id="linkId3">Gå med</button></td>
-        </tr>
-        <tr>
-        <td id="lektionId4">Lektion</td>
-        <td id="teacherId4">Namn</td>
-        <td id="linkId4">Länk</td>
-        <td><button class="btn btn-danger" onclick="manRedirect(5)" id="linkId4">Gå med</button></td>
-        </tr>
-        <tr>
-        <td id="lektionId5">Lektion</td>
-        <td id="teacherId5">Namn</td>
-        <td id="linkId5">Länk</td>
-        <td><button class="btn btn-danger" onclick="manRedirect(6)" id="linkId5">Gå med</button></td>
-        </tr>
-        <tr>
-        <td id="lektionId6">Lektion</td>
-        <td id="teacherId6">Namn</td>
-        <td id="linkId6">Länk</td>
-        <td><button class="btn btn-danger" onclick="manRedirect(7)" id="linkId6">Gå med</button></td>
-        </tr>
-        <tr>
-        <td id="lektionId7">Lektion</td>
-        <td id="teacherId7">Namn</td>
-        <td id="linkId7">Länk</td>
-        <td><button class="btn btn-danger disabled" id="linkId7">Gå med</button></td>
-        </td>
-        </tr>
-        </tbody>
-        </table>
-      </div>
-      </div>
-      <br>
-      <br>
-      <div class="jumbotron text-center" style="margin-bottom:0; background-color:#343a40!important; color:white; ">
-        <p>Made by: Viktor Olsson, Erik Arvidson, Junior Rantila</p>
-        <p><svg height="16" class="octicon octicon-law text-light mr-2" viewBox="0 0 14 16" version="1.1" width="16" aria-hidden="true"><path fill="#fff" fill-rule="evenodd" d="M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"></path></svg>GNU General Public License v2.0</p>
-        <a href="https://github.com/voro282/OK-TE19B">https://github.com/voro282/OK-TE19B</a>
-      </div>
-      </div>
     </div>
-  </body>
+    </div>
+</body>
+
 </html>
