@@ -15,7 +15,7 @@ const TEACHER = 1;
 const LINK    = 2;
 
 const KLASSINFO = [
-["Rast", "Discord", "https://discord.gg/AZRdg4"],
+["Rast", "Discord", "https://discord.gg/HShBsv6"],
 ["Teknik","Kalles Kaviar","https://meet.google.com/toh-xdmy-kwd"],
 ["Matte", "Björn", "https://meet.google.com/wkf-bbxo-fjv"],
 ["Svenska", "Pontus", "https://meet.google.com/zoc-xsea-ghi"],
