@@ -26,12 +26,6 @@ const KLASSINFO = [
 ["Idrott", "Micke", "Finns ingen än"]
 ];
 
-function createE(){
-    let newElement = document.createElement('div');
-    document.body.appendChild(newElement)
-    console.dir(newElement);
-}
-
 function changeLink(url) {
     url = classRedirect();
     var tab = window.open(url, '_blank');
@@ -47,6 +41,7 @@ function classRedirect() {
 
     //teknik, matte, svenska, sam, historia, engelska, mentorstid
     var har = [];
+    har.length = 8;
     var lektionStart = [];
     var lektionEnd   = [];
 
@@ -186,27 +181,22 @@ function classRedirect() {
     if (lektion == RAST) goTo = "Gå på rast";
     else goTo = "Gå till " + lecture + " meet";
 
-    document.getElementById("lecture").innerHTML  = lecture;
-    document.getElementById("teacher").innerHTML  = teacher;
-    document.getElementById("link").innerHTML     = link;
-    document.getElementById("GOTO").innerHTML     = goTo;
+    document.getElementById("lecture").textContent  = lecture;
+    document.getElementById("teacher").textContent  = teacher;
+    document.getElementById("link").textContent     = link;
+    document.getElementById("GOTO").textContent     = goTo;
 
-
-    const table = document.getElementById("table");
-    const BUTTON = 3;
 
     //Set all of class lists
-    var k = 0;
-    var antalLektioner = 8;
-    for (var i = 0; i<antalLektioner; i++){
+    const table = document.getElementById("table");
+    for (var i = 0; i<har.length; i++){
         let newElement = document.createElement('tr');
         newElement.id = 'row'+i;
         table.appendChild(newElement);
         
-        for (var j = 0; j<4; j++){
+        for (var j = 0; j<KLASSINFO[i+1].length+1; j++){
             const row = document.getElementById('row'+i);
             newElement = document.createElement('td');
-            newElement.id = 'col'+k;
             switch(j){
                 case(LECTURE):
                 newElement.textContent = KLASSINFO[i+1][LECTURE];
@@ -220,17 +210,13 @@ function classRedirect() {
                 newElement.textContent = KLASSINFO[i+1][LINK];
                 break;
                 
-                case(BUTTON):
-                let newButton = document.getElementById('col'+k);
-                const buttons = document.createElement('button');
-                newButton.appendChild(buttons);
-                //newElement.textContent = 'd';
-                break;
+                case(3):
+                if (lektionStart[i] != 0) newElement.textContent = lektionStart[i] + ' - ' + lektionEnd[i];
+                else newElement.textContent = "Ingen " + KLASSINFO[i+1][LECTURE] + " idag.";
+                
             }
             row.appendChild(newElement);
-
         }
     }
-
     return link;
 }
