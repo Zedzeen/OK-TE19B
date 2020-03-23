@@ -1,14 +1,12 @@
-
-
-const RAST     = 0;
-const TEKNIK   = 1;
-const MATTE    = 2;
-const SVENSKA  = 3;
-const SAM      = 4;
-const HISTORIA = 5;
-const ENGELSKA = 6;
-const MENTOR   = 7;
-const IDROTT   = 8;
+const RAST     = -1;
+const TEKNIK   = 0;
+const MATTE    = 1;
+const SVENSKA  = 2;
+const SAM      = 3;
+const HISTORIA = 4;
+const ENGELSKA = 5;
+const MENTOR   = 6;
+const IDROTT   = 7;
 
 const LECTURE = 0;
 const TEACHER = 1;
@@ -17,7 +15,6 @@ const LINK    = 2;
 var lecture, teacher, link;
 
 const KLASSINFO = [
-["Rast", "Discord", "https://discord.gg/HShBsv6"],
 ["Teknik","Kalles Kaviar","https://meet.google.com/eoy-cntm-ngs"],
 ["Matte", "Björn", "https://meet.google.com/wkf-bbxo-fjv"],
 ["Svenska", "Pontus", "https://meet.google.com/zoc-xsea-ghi"],
@@ -27,6 +24,8 @@ const KLASSINFO = [
 ["Mentorstid", "Ulrika", "https://meet.google.com/iqp-evan-hir"],
 ["Idrott", "Micke", "https://meet.google.com/czu-xiqy-ate"]
 ];
+
+const RASTINFO = ["Rast", "Discord", "https://discord.gg/HShBsv6"];
 
 function changeLink() {
     var tab = window.open(link, '_blank');
@@ -171,16 +170,24 @@ function classRedirect() {
 
     var lektion = RAST;
     for (var i = 0; i<lektionStart.length; i++){
-        if (currentHour >= lektionStart[i] && currentHour <= lektionEnd[i]) lektion = i;
+        if (currentHour >= lektionStart[i] && currentHour < lektionEnd[i]) lektion = i;
     }
 
     var goTo;
 
-    lecture   = KLASSINFO[lektion][LECTURE];
-    teacher   = KLASSINFO[lektion][TEACHER];
-    link      = KLASSINFO[lektion][LINK];
-    if (lektion == RAST) goTo = "Gå på rast";
-    else goTo = "Gå till " + lecture + " meet";
+
+    if (lektion == RAST) {
+        lecture   = RASTINFO[LECTURE];
+        teacher   = RASTINFO[TEACHER]
+        link      = RASTINFO[LINK];
+        goTo = "Gå på rast";
+    }
+    else {
+        lecture   = KLASSINFO[lektion][LECTURE];
+        teacher   = KLASSINFO[lektion][TEACHER];
+        link      = KLASSINFO[lektion][LINK];
+        goTo = "Gå till " + lecture + " meet";
+    }
 
     document.getElementById("lecture").textContent  = lecture;
     document.getElementById("teacher").textContent  = teacher;
@@ -194,25 +201,25 @@ function classRedirect() {
         newElement.id = 'row'+i;
         table.appendChild(newElement);
         
-        for (var j = 0; j<KLASSINFO[i+1].length+1; j++){
+        for (var j = 0; j<KLASSINFO[i].length+1; j++){
             const row = document.getElementById('row'+i);
             newElement = document.createElement('td');
             switch(j){
                 case(LECTURE):
-                newElement.textContent = KLASSINFO[i+1][LECTURE];
+                newElement.textContent = KLASSINFO[i][LECTURE];
                 break;
                 
                 case(TEACHER):
-                newElement.textContent = KLASSINFO[i+1][TEACHER];
+                newElement.textContent = KLASSINFO[i][TEACHER];
                 break;
                 
                 case(LINK):
-                newElement.textContent = KLASSINFO[i+1][LINK];
+                newElement.textContent = KLASSINFO[i][LINK];
                 break;
                 
                 case(3):
-                if (lektionStart[i+1] != undefined) newElement.textContent = lektionStart[i+1] + ' - ' + lektionEnd[i+1];
-                else newElement.textContent = "Ingen " + KLASSINFO[i+1][LECTURE] + " idag.";
+                if (lektionStart[i] != undefined) newElement.textContent = lektionStart[i] + ' - ' + lektionEnd[i];
+                else newElement.textContent = "Ingen " + KLASSINFO[i][LECTURE] + " idag.";
                 
             }
             row.appendChild(newElement);
