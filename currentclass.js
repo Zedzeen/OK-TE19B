@@ -14,7 +14,7 @@ const LECTURE = 0;
 const TEACHER = 1;
 const LINK    = 2;
 
-var klassLinkNu;
+var link;
 
 const KLASSINFO = [
 ["Rast", "Discord", "https://discord.gg/HShBsv6"],
@@ -33,7 +33,7 @@ function updateValues(){
 }
 
 function changeLink() {
-    var tab = window.open(klassLinkNu, '_blank');
+    var tab = window.open(link, '_blank');
     tab.focus();
 }
 
@@ -178,7 +178,7 @@ function classRedirect() {
         if (currentHour >= lektionStart[i] && currentHour <= lektionEnd[i]) lektion = i;
     }
 
-    var ln, tn , link, goTo;
+    var ln, tn, goTo;
 
     lecture   = KLASSINFO[lektion][LECTURE];
     teacher   = KLASSINFO[lektion][TEACHER];
@@ -217,12 +217,11 @@ function classRedirect() {
                 break;
                 
                 case(3):
-                if (lektionStart[i] != 0) newElement.textContent = lektionStart[i] + ' - ' + lektionEnd[i];
+                if (lektionStart[i] != undefined) newElement.textContent = lektionStart[i] + ' - ' + lektionEnd[i];
                 else newElement.textContent = "Ingen " + KLASSINFO[i+1][LECTURE] + " idag.";
                 
             }
             row.appendChild(newElement);
         }
     }
-    return link;
 }
