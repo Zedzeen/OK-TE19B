@@ -16,15 +16,19 @@ const LINK    = 2;
 
 const KLASSINFO = [
 ["Rast", "Discord", "https://discord.gg/HShBsv6"],
-["Teknik","Kalles Kaviar","https://meet.google.com/toh-xdmy-kwd"],
+["Teknik","Kalles Kaviar","https://meet.google.com/eoy-cntm-ngs"],
 ["Matte", "Björn", "https://meet.google.com/wkf-bbxo-fjv"],
 ["Svenska", "Pontus", "https://meet.google.com/zoc-xsea-ghi"],
-["Samhällskunskap", "Uffe", "https://meet.google.com/nih-octd-scd"],
+["Samhällskunskap", "Uffe", "https://meet.google.com/pwg-znqn-ebe"],
 ["Historia", "Uffe", "https://meet.google.com/nih-octd-scd",],
 ["Engelska", "Erina", "https://meet.google.com/vqn-zyxk-vme"],
 ["Mentorstid", "Ulrika", "https://meet.google.com/iqp-evan-hir"],
-["Idrott", "Micke", "Finns ingen än"]
+["Idrott", "Micke", "https://meet.google.com/czu-xiqy-ate"]
 ];
+
+function updateValues(){
+    
+}
 
 function changeLink(url) {
     url = classRedirect();
