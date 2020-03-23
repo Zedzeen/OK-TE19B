@@ -14,7 +14,7 @@ const LECTURE = 0;
 const TEACHER = 1;
 const LINK    = 2;
 
-var link;
+var lecture, teacher, link;
 
 const KLASSINFO = [
 ["Rast", "Discord", "https://discord.gg/HShBsv6"],
@@ -27,10 +27,6 @@ const KLASSINFO = [
 ["Mentorstid", "Ulrika", "https://meet.google.com/iqp-evan-hir"],
 ["Idrott", "Micke", "https://meet.google.com/czu-xiqy-ate"]
 ];
-
-function updateValues(){
-    
-}
 
 function changeLink() {
     var tab = window.open(link, '_blank');
@@ -178,7 +174,7 @@ function classRedirect() {
         if (currentHour >= lektionStart[i] && currentHour <= lektionEnd[i]) lektion = i;
     }
 
-    var ln, tn, goTo;
+    var goTo;
 
     lecture   = KLASSINFO[lektion][LECTURE];
     teacher   = KLASSINFO[lektion][TEACHER];
@@ -190,8 +186,6 @@ function classRedirect() {
     document.getElementById("teacher").textContent  = teacher;
     document.getElementById("link").textContent     = link;
     document.getElementById("GOTO").textContent     = goTo;
-    klassLinkNu = link;
-
 
     //Set all of class lists
     const table = document.getElementById("table");
@@ -217,7 +211,7 @@ function classRedirect() {
                 break;
                 
                 case(3):
-                if (lektionStart[i] != undefined) newElement.textContent = lektionStart[i] + ' - ' + lektionEnd[i];
+                if (lektionStart[i+1] != undefined) newElement.textContent = lektionStart[i+1] + ' - ' + lektionEnd[i+1];
                 else newElement.textContent = "Ingen " + KLASSINFO[i+1][LECTURE] + " idag.";
                 
             }
