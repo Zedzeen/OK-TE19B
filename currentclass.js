@@ -14,6 +14,8 @@ const LECTURE = 0;
 const TEACHER = 1;
 const LINK    = 2;
 
+var klassLinkNu;
+
 const KLASSINFO = [
 ["Rast", "Discord", "https://discord.gg/HShBsv6"],
 ["Teknik","Kalles Kaviar","https://meet.google.com/eoy-cntm-ngs"],
@@ -30,9 +32,8 @@ function updateValues(){
     
 }
 
-function changeLink(url) {
-    url = classRedirect();
-    var tab = window.open(url, '_blank');
+function changeLink() {
+    var tab = window.open(klassLinkNu, '_blank');
     tab.focus();
 }
 
@@ -189,6 +190,7 @@ function classRedirect() {
     document.getElementById("teacher").textContent  = teacher;
     document.getElementById("link").textContent     = link;
     document.getElementById("GOTO").textContent     = goTo;
+    klassLinkNu = link;
 
 
     //Set all of class lists
