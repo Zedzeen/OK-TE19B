@@ -72,7 +72,7 @@ function classRedirect() {
         lektionStart[TEKNIK] = 8;
         lektionEnd[TEKNIK]   = 9;
 
-        lektionStart[IDROTT] = 10;
+        lektionStart[IDROTT] = 9;
         lektionEnd[IDROTT]   = 11;
 
         lektionStart[SAM]    = 12;
@@ -92,7 +92,7 @@ function classRedirect() {
         lektionStart[TEKNIK]  = 9;
         lektionEnd[TEKNIK]    = 11;
 
-        lektionStart[SVENSKA] = 12;
+        lektionStart[SVENSKA] = 11;
         lektionEnd[SVENSKA]   = 13;
 
         lektionStart[MATTE]   = 13;
@@ -156,7 +156,7 @@ function classRedirect() {
         lektionStart[MATTE]    = 8;
         lektionEnd[MATTE]      = 9;
 
-        lektionStart[HISTORIA] = 10;
+        lektionStart[HISTORIA] = 9;
         lektionEnd[HISTORIA]   = 11;
 
         lektionStart[MENTOR]   = 12;
