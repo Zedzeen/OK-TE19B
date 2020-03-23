@@ -27,7 +27,7 @@ const KLASSINFO = [
 
 const RASTINFO = ["Rast", "Discord", "https://discord.gg/HShBsv6"];
 
-function changeLink() {
+function openLink() {
     var tab = window.open(link, '_blank');
     tab.focus();
 }
