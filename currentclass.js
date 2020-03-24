@@ -92,7 +92,7 @@ function classRedirect() {
         lektionStart[TEKNIK]  = 9;
         lektionEnd[TEKNIK]    = 11;
 
-        lektionStart[SVENSKA] = 11;
+        lektionStart[SVENSKA] = 12;
         lektionEnd[SVENSKA]   = 13;
 
         lektionStart[MATTE]   = 13;
