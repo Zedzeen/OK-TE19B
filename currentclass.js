@@ -15,7 +15,7 @@ const LINK    = 2;
 var lecture, teacher, link;
 
 const KLASSINFO = [
-["Teknik","Kalles Kaviar","https://meet.google.com/eoy-cntm-ngs"],
+["Teknik","Kalles Kaviar","https://meet.google.com/drf-nbfi-dkw"],
 ["Matte", "Björn", "https://meet.google.com/wkf-bbxo-fjv"],
 ["Svenska", "Pontus", "https://meet.google.com/zoc-xsea-ghi"],
 ["Samhällskunskap", "Uffe", "https://meet.google.com/pwg-znqn-ebe"],
