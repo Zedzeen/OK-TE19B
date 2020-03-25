@@ -1,3 +1,4 @@
+
 const RAST     = -1;
 const TEKNIK   = 0;
 const MATTE    = 1;
@@ -28,7 +29,7 @@ const KLASSINFO = [
 ];
 
 const RASTINFO = ["Rast", "Discord", "https://discord.gg/HShBsv6"];
-
+  
 function submitICal(){
     iCalURL = document.getElementById("iCalURL").value;
     localStorage.setItem("iCalURL", iCalURL);
@@ -40,11 +41,17 @@ function openLink() {
     tab.focus();
 }
 
-function classRedirect() {
+function fetchData() {
+    var data = ical.fromURL(iCalURL, {mode: "no-cors"})
+    console.log(data);    
+}
 
+function classRedirect() {
+    
+    //fetchData();
+    
     document.getElementById("iCalURL").value = iCalURL;
 
-    //teknik, matte, svenska, sam, historia, engelska, mentorstid
     var har = [];
     har.length = 8;
     var lektionStart = [];
@@ -221,8 +228,8 @@ function classRedirect() {
                 case(LINK):
                 let anchorElem = document.createElement('a');
                 anchorElem.setAttribute("href", KLASSINFO[i][LINK]);
-                anchorElem.innerHTML = KLASSINFO[i][LINK];
-                newTd.appendChild(anchorElem); // append your new link to the body
+                anchorElem.textContent = KLASSINFO[i][LINK];
+                newTd.appendChild(anchorElem); // append new link to the body
                 break;
 
                 case(3):
