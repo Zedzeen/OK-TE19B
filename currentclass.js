@@ -196,38 +196,37 @@ function classRedirect() {
 
     //Set all of class lists
     const table = document.getElementById("table");
-    for (var i = 0; i<har.length; i++){
-        let newElement = document.createElement('tr');
-        newElement.id = 'row'+i;
-        table.appendChild(newElement);
+    for (let i = 0; i<har.length; i++){
+        let newRow = document.createElement('tr');
+        table.appendChild(newRow);
+        let row = table.getElementsByTagName("tr");
 
-        for (var j = 0; j<KLASSINFO[i].length+1; j++){
-            const row = document.getElementById('row'+i);
-            newElement = document.createElement('td');
+
+        for (let j = 0; j<KLASSINFO[i].length+1; j++){
+            newTd = document.createElement('td');
             newAnchor = document.createElement('a');
             switch(j){
                 case(LECTURE):
-                newElement.textContent = KLASSINFO[i][LECTURE];
+                newTd.textContent = KLASSINFO[i][LECTURE];
                 break;
 
                 case(TEACHER):
-                newElement.textContent = KLASSINFO[i][TEACHER];
+                newTd.textContent = KLASSINFO[i][TEACHER];
                 break;
 
                 case(LINK):
-                var anchorElem = document.createElement('a');
+                let anchorElem = document.createElement('a');
                 anchorElem.setAttribute("href", KLASSINFO[i][LINK]);
                 anchorElem.innerHTML = KLASSINFO[i][LINK];
-
-                newElement.appendChild(anchorElem); // append your new link to the body
+                newTd.appendChild(anchorElem); // append your new link to the body
                 break;
 
                 case(3):
-                if (lektionStart[i] != undefined) newElement.textContent = lektionStart[i] + ' - ' + lektionEnd[i];
-                else newElement.textContent = "Ingen " + KLASSINFO[i][LECTURE] + " idag.";
+                if (lektionStart[i] != undefined) newTd.textContent = lektionStart[i] + ' - ' + lektionEnd[i];
+                else newTd.textContent = "Ingen " + KLASSINFO[i][LECTURE] + " idag.";
 
             }
-            row.appendChild(newElement);
+            row[i].appendChild(newTd);
         }
     }
 }
