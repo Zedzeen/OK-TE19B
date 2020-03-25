@@ -201,7 +201,6 @@ function classRedirect() {
         table.appendChild(newRow);
         let row = table.getElementsByTagName("tr");
 
-
         for (let j = 0; j<KLASSINFO[i].length+1; j++){
             newTd = document.createElement('td');
             newAnchor = document.createElement('a');
