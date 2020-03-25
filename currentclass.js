@@ -40,15 +40,9 @@ function openLink() {
     tab.focus();
 }
 
-function manRedirect(url) {
-    var tab = window.open(KLASSINFO[url][LINK], '_blank');
-    tab.focus();
-}
-
 function classRedirect() {
 
-    if (iCalURL != null) document.getElementById("iCalURL").value  = iCalURL;
-
+    document.getElementById("iCalURL").value = iCalURL;
 
     //teknik, matte, svenska, sam, historia, engelska, mentorstid
     var har = [];
