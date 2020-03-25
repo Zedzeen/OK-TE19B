@@ -215,8 +215,11 @@ function classRedirect() {
                 break;
 
                 case(LINK):
-                newElement.appendChild();
-                //newElement.textContent = KLASSINFO[i][LINK];
+                var anchorElem = document.createElement('a');
+                anchorElem.setAttribute("href", KLASSINFO[i][LINK]);
+                anchorElem.innerHTML = KLASSINFO[i][LINK];
+
+                newElement.appendChild(anchorElem); // append your new link to the body
                 break;
 
                 case(3):
