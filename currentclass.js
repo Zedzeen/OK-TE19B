@@ -32,6 +32,7 @@ const RASTINFO = ["Rast", "Discord", "https://discord.gg/HShBsv6"];
 function submitICal(){
     iCalURL = document.getElementById("iCalURL").value;
     localStorage.setItem("iCalURL", iCalURL);
+    window.location.reload();
 }
 
 function openLink() {
@@ -45,6 +46,9 @@ function manRedirect(url) {
 }
 
 function classRedirect() {
+
+    if (iCalURL != null) document.getElementById("iCalURL").value  = iCalURL;
+
 
     //teknik, matte, svenska, sam, historia, engelska, mentorstid
     var har = [];
