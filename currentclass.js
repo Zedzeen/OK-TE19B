@@ -200,19 +200,20 @@ function classRedirect() {
         let newElement = document.createElement('tr');
         newElement.id = 'row'+i;
         table.appendChild(newElement);
-        
+
         for (var j = 0; j<KLASSINFO[i].length+1; j++){
             const row = document.getElementById('row'+i);
             newElement = document.createElement('td');
+            newAnchor = document.createElement('a');
             switch(j){
                 case(LECTURE):
                 newElement.textContent = KLASSINFO[i][LECTURE];
                 break;
-                
+
                 case(TEACHER):
                 newElement.textContent = KLASSINFO[i][TEACHER];
                 break;
-                
+
                 case(LINK):
                 var anchorElem = document.createElement('a');
                 anchorElem.setAttribute("href", KLASSINFO[i][LINK]);
@@ -220,11 +221,11 @@ function classRedirect() {
 
                 newElement.appendChild(anchorElem); // append your new link to the body
                 break;
-                
+
                 case(3):
                 if (lektionStart[i] != undefined) newElement.textContent = lektionStart[i] + ' - ' + lektionEnd[i];
                 else newElement.textContent = "Ingen " + KLASSINFO[i][LECTURE] + " idag.";
-                
+
             }
             row.appendChild(newElement);
         }
