@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="twitter:" content="Online Klass TE19B, En lista på Google Länks till klasser, samt en funktion som automatiskt kollar vilken lektion man har och ger den korrekta länken för den.">
-    <link rel='icon' href='favicon-hr.png' type='image/png'/ >
+    <link rel='icon' href='favicon-hr.png' type='image/png' />
     <title>TE19B Klasser</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -18,30 +18,12 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!--
-Matte:
-https://Länk.google.com/wkf-bbxo-fjv
-
-Teknik:
-https://Länk.google.com/toh-xdmy-kwd
-
-Engelska:
-https://Länk.google.com/vqn-zyxk-vme
-
-Historia/Sam:
-https://Länk.google.com/nih-octd-scd
-
-Svenska:
-https://Länk.google.com/zoc-xsea-ghi
-
-Idrott:
-n/a
--->
 
 </head>
 
 </script>
 
-<body style="width:99.99%;" onload="classRedirect()">
+<body style="width:100%;" onload="classRedirect()">
     <script type="text/javascript" src="currentclass.js"></script>
     <div class="alert alert-warning alert-dismissible" style="text-align:center;">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -56,9 +38,6 @@ n/a
                         <h3 style="float:left">Nästa/Nuvarande lektion</h3>
                     </div>
                     <div class="col-sm-2 col-12">
-                        <!--
-                        <button style="float:right;" class=" btn btn-info" type="button" name="button" onclick="updateValues()">Uppdatera</button>
-                        -->
                         <button style="float:right;" class=" btn btn-info" type="button" name="button" onclick="window.location.reload();">Uppdatera</button>
                     </div>
                     <div class="col-sm-1 col-12">
@@ -114,14 +93,6 @@ n/a
                         </tr>
                     </thead>
                     <tbody id="table">
-                        <!--
-                        <tr>
-                            <td id="lektionId0">Lektion</td>
-                            <td id="teacherId0">Namn</td>
-                            <td id="linkId0">Länk</td>
-                            <td><button class="btn btn-danger" onclick="manRedirect(1)" id="linkId0">Gå med</button></td>
-                        </tr>
-                        -->
                     </tbody>
                 </table>
             </div>
