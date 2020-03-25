@@ -14,6 +14,8 @@ const LINK    = 2;
 
 var lecture, teacher, link;
 
+var iCalURL = localStorage.getItem("iCalURL");
+
 const KLASSINFO = [
 ["Teknik","Kalles Kaviar","https://meet.google.com/sgi-imkg-yqv"],
 ["Matte", "Björn", "https://meet.google.com/wkf-bbxo-fjv"],
@@ -26,6 +28,11 @@ const KLASSINFO = [
 ];
 
 const RASTINFO = ["Rast", "Discord", "https://discord.gg/HShBsv6"];
+
+function submitICal(){
+    iCalURL = document.getElementById("iCalURL").value;
+    localStorage.setItem("iCalURL", iCalURL);
+}
 
 function openLink() {
     var tab = window.open(link, '_blank');
@@ -228,4 +235,5 @@ function classRedirect() {
             row[i].appendChild(newTd);
         }
     }
+    
 }
