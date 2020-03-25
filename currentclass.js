@@ -22,7 +22,7 @@ const KLASSINFO = [
 ["Historia", "Uffe", "https://meet.google.com/nih-octd-scd",],
 ["Engelska", "Erina", "https://meet.google.com/vqn-zyxk-vme"],
 ["Mentorstid", "Ulrika", "https://meet.google.com/iqp-evan-hir"],
-["Idrott", "Micke", "https://meet.google.com/czu-xiqy-ate"]
+["Idrott", "Micke", "https://meet.google.com/dxk-ngzd-pgf"]
 ];
 
 const RASTINFO = ["Rast", "Discord", "https://discord.gg/HShBsv6"];
