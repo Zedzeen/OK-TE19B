@@ -18,8 +18,10 @@ const RASTINFO = ["Rast", "Discord", "https://discord.gg/HShBsv6"];
 function isWithinTimeSpan(date, day, time) {
     days = ["S\u00F6ndag", "M\u00E5ndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "L\u00F6rdag"];
     if (day != days[date.getDay()]) return false;
+    
     let startTime = new Date(date).setHours(parseInt(time.split("-")[0].split(":")[0]), parseInt(time.split("-")[0].split(":")[1]), 0, 0);
     let endTime = new Date(date).setHours(parseInt(time.split("-")[1].split(":")[0]), parseInt(time.split("-")[1].split(":")[1]), 0, 0);
+
     return date >= startTime && date < endTime;
 }
 
@@ -32,8 +34,10 @@ if (iCalURL != null){
             //get future events
             events = cal.getFutureEvents();
             schema.reverse();
+            
             let currentLectures = 0;
             let date = new Date("March 27, 2020 12:30:00");
+
             schema.forEach(function(e, i) {
                 for (j = 0; j < MEET.length; j++) {
                     if (e[2] == MEET[j].subject) schema[i].push(MEET[j].meet);
@@ -41,12 +45,14 @@ if (iCalURL != null){
                 if (isWithinTimeSpan(date, e[0], e[1])) {
                     currentLectures++;
                     tr = document.getElementById("currentLectures").insertRow();
+
                     for (let j = 0; j < 3; j++) {
                         let td = tr.insertCell();
                         td.textContent = e[j + 2] ? e[j + 2] : "-";
                     }
                     if (e[4]) {
                         let td = tr.insertCell();
+
                         td.appendChild(redir = document.createElement("button"));
                         redir.setAttribute("class", "btn btn-danger");
                         redir.setAttribute("onclick", "openLink()");
@@ -60,6 +66,7 @@ if (iCalURL != null){
             if (currentLectures <= 0) {
                 tr = document.getElementById("currentLectures").insertRow();
                 for (i = 0; i < 3; i++) {
+
                     let td = tr.insertCell();
                     td.textContent = RASTINFO[i];
                 }
