@@ -36,8 +36,9 @@ if (iCalURL != null){
             schema.reverse();
             
             let currentLectures = 0;
-            let date = new Date("March 27, 2020 12:30:00");
-
+            //let date = new Date("March 25, 2020 12:30:00");
+            let date = new Date();
+            
             schema.forEach(function(e, i) {
                 for (j = 0; j < MEET.length; j++) {
                     if (e[2] == MEET[j].subject) schema[i].push(MEET[j].meet);
