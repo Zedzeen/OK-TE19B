@@ -57,7 +57,7 @@ if (iCalURL != null){
                         redir.setAttribute("class", "btn btn-danger");
                         redir.setAttribute("onclick", "openLink()");
                         redir.setAttribute("id", "GOTO");
-                        redir.textContent = "G\u00E5 till lektionen";
+                        redir.textContent = "G\u00E5 till "+ schema[i][2].toLowerCase() + " meet";
                     }
                 }
             });
