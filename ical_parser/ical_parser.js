@@ -8,6 +8,7 @@
  */
  
 var schema = [];
+var schema_swp = {};
  
 function ical_parser(feed_url, callback){
 	//store of unproccesed data.
@@ -171,6 +172,17 @@ function ical_parser(feed_url, callback){
 		this.events.sort(function(a,b){
 			return a.DTSTART-b.DTSTART;
 		});
+
+		schema.forEach(function(e, i) {
+			if (!schema_swp[e[0]]) schema_swp[e[0]] = []
+			schema_swp[e[0]].unshift({
+	        		starttime: e[1].split("-")[0],
+	        		endtime: e[1].split("-")[0],
+				subject: e[2],
+				teacher: e[3]
+		    	})
+		})
+
 		//Run callback method, if was defined. (return self)
 		if(typeof callback == 'function') callback(this);
 	}
