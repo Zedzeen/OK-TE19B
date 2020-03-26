@@ -177,7 +177,7 @@ function ical_parser(feed_url, callback){
 			if (!schema_swp[e[0]]) schema_swp[e[0]] = []
 			schema_swp[e[0]].unshift({
 	        		starttime: e[1].split("-")[0],
-	        		endtime: e[1].split("-")[0],
+	        		endtime: e[1].split("-")[1],
 				subject: e[2],
 				teacher: e[3]
 		    	})
