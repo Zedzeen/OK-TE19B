@@ -78,8 +78,9 @@ function ical_parser(feed_url, callback){
 		var in_event = false;
 		//Use as a holder for the current event being proccessed.
 		var cur_event = null;
-		for(var i=cal_array.length-1, dataIndex = 0;i>0;i--){
-            var ln = cal_array[i];
+		var ln;
+        for(var i=cal_array.length-1, dataIndex = 0;i>0;i--){
+            ln = cal_array[i];
             if (ln[0]==' ') {
                 ln = ln.substr(1);
                 cal_array[i-1] = cal_array[i-1].concat(ln);
@@ -87,7 +88,7 @@ function ical_parser(feed_url, callback){
             }
             
             if (ln.startsWith('DESCRIPTION:')) {
-                var dagar = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
+                var dagar = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag"];
                 ln = ln.substr(12); //Removes DESCRIPTION: from ln
                 if (ln.endsWith(' ')) ln = ln.substr(0, ln.length-1); //removes space in the case that the string ends with one.
                 if (ln=="") continue; //if the string is now empty, continue
@@ -103,6 +104,14 @@ function ical_parser(feed_url, callback){
                 if (skip) continue;
                 
                 ln = ln.split(' '); //split into more managable pices.
+                
+                for (var j = 4; j<ln.length; j++){
+                    if (ln[j] != "Jv" || ln[j] != "Uv"){
+                        delete ln[j];
+                    }
+                }
+                ln = ln.filter(function() {return true;});
+                
                 schema[dataIndex] = ln;
                 dataIndex++;
             }

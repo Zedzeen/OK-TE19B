@@ -30,16 +30,18 @@ const KLASSINFO = [
 const RASTINFO = ["Rast", "Discord", "https://discord.gg/HShBsv6"];
 
 
-//run ical parser on load
-window.addEventListener("load", function() {
-    //Create new ical parser
-    new ical_parser(iCalURL, function(cal) {
-        //When ical parser has loaded file
-        //get future events
-        events = cal.getFutureEvents();
-        schema.reverse();
-    });
-}, false);
+if (iCalURL != null){
+    //run ical parser on load
+    window.addEventListener("load", function() {
+        //Create new ical parser
+        new ical_parser(iCalURL, function(cal) {
+            //When ical parser has loaded file
+            //get future events
+            events = cal.getFutureEvents();
+            schema.reverse();
+        });
+    }, false);
+}
 
 function classRedirect() {
 
