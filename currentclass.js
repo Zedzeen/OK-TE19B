@@ -19,9 +19,12 @@ function isWithinTimeSpan(date, day, time) {
     days = ["S\u00F6ndag", "M\u00E5ndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "L\u00F6rdag"];
     if (day != days[date.getDay()]) return false;
     
+    let offset = localStorage.getItem("timeOffset") ? localStorage.getItem("timeOffset") : 600000; 
+    
     let startTime = new Date(date).setHours(parseInt(time.split("-")[0].split(":")[0]), parseInt(time.split("-")[0].split(":")[1]), 0, 0);
+    startTime -= offset;
     let endTime = new Date(date).setHours(parseInt(time.split("-")[1].split(":")[0]), parseInt(time.split("-")[1].split(":")[1]), 0, 0);
-
+    
     return date >= startTime && date < endTime;
 }
 
@@ -36,7 +39,7 @@ if (iCalURL != null){
             schema.reverse();
             
             let currentLectures = 0;
-            //let date = new Date("March 25, 2020 12:30:00");
+            //let date = new Date("March 25, 2020 09:40");
             let date = new Date();
             
             schema.forEach(function(e, i) {
