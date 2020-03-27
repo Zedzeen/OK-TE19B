@@ -4,6 +4,7 @@ This is the website for te19b
 This page was made so that the students, or teachers don't have to think
 of "O shit, where is the link to that meet?" while dealing with online
 classes due to covid-19. That is why we made this.
+Link to webpage: https://voro282.github.io/OK-TE19B/
 
 The source code for this site is open and you are free to use it under
 the terms of GPL v2.0. If you have problems while using this code,
