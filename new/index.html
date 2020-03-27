@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="twitter:" content="Online Klass TE19B, En lista på Google Länks till klasser, samt en funktion som automatiskt kollar vilken lektion man har och ger den korrekta länken för den.">
-    <link rel='icon' href='favicon-hr.png' type='image/png' />
+    <link rel='icon' href='../favicon-hr.png' type='image/png' />
     <title>TE19B Klasser</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -24,10 +24,6 @@
 
 
     <body style="width:100%;" onload="classRedirect()">
-        <div class="alert alert-warning alert-dismissible" style="text-align:center;">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Varning!</strong> VAR UPPMÄRKSAM PÅ TIDEN! Klicka på info knappen för mer information.
-        </div>
         <h1 style="text-align:center; padding-top:30px;">TE19B Online Klasser</h1>
         <div class="container" style="padding-top:30px;">
             <div class="card">
@@ -58,7 +54,7 @@
                     </table>
                     <div id="infoCol" class="collapse" style="color:black;">
                         <h6>Information:</h6>
-                        <p>VAR UPPMÄRKSAM PÅ TIDEN! Eftersom redirect länken byts ut timvis kan det resultera i att den inte stämmer överens med vilken lektion det egentligen är. Därav finnes det manuella länkar längst ner på sidan.</p>
+                        <p>Vi uppdaterar lektionerna 10min innan de börjar. ifall att du vill ändra detta, kan du skriva "localStorage.setItem('startTimeOffset' tid)" i konsollen vart "tid" är antalet millisekunder tidigare som lektionerna ska visas.</p>
 
                         <h6>Buggrapportering:</h6>
                         <p>Denna sida är i BETA, det kan komma att uppstå buggar. Ifall sådana finnes bör ni kontakta Erik, Viktor eller Junior via Discord omedelbums för att få problemet åtgärdat.</p>

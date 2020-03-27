@@ -8,7 +8,7 @@ if (!localStorage.getItem("lectureStartOffset")) localStorage.setItem("lectureSt
 
 const MEET = [
     {subject: "TEKTEK01",   meet: "https://meet.google.com/sgi-imkg-yqv"},
-    {subject: "MATMAT02c",   meet: "https://meet.google.com/wkf-bbxo-fjv"},
+    {subject: "MATMAT02c",  meet: "https://meet.google.com/wkf-bbxo-fjv"},
     {subject: "SVESVE01",   meet: "https://meet.google.com/zoc-xsea-ghi"},
     {subject: "SVASVA01",   meet: "https://meet.google.com/dzw-ejay-sgp"},
     {subject: "SAMSAM01b",  meet: "https://meet.google.com/pwg-znqn-ebe"},
