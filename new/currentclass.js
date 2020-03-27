@@ -125,7 +125,7 @@ function refreshPageData() {
                 let tblbody = document.getElementById("table")
                 for (let i = 0; i < schema.length; i++) {
                     let tr = tblbody.insertRow();
-                    //if (schema[i][0] != days[date.getDay()]) continue;
+                    if (schema[i][0] != days[date.getDay()]) continue;
                     for (let j = 0; j < 4; j++) {
                         let td = tr.insertCell();
                         td.textContent = schema[i][j] ? schema[i][j] : "-";
