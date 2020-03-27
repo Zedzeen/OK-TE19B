@@ -1,6 +1,9 @@
 
 let iCalURL = localStorage.getItem("iCalURL");
 
+
+let link = "";
+
 if (!localStorage.getItem("lectureStartOffset")) localStorage.setItem("lectureStartOffset", 600000)
 
 const MEET = [
@@ -57,8 +60,9 @@ if (iCalURL != null){
                         td.textContent = e[j + 2] ? e[j + 2] : "-";
                     }
                     if (e[4]) {
+                        link = e[4];
                         let td = tr.insertCell();
-
+                        
                         td.appendChild(redir = document.createElement("button"));
                         redir.setAttribute("class", "btn btn-danger");
                         redir.setAttribute("onclick", "openLink()");
@@ -75,6 +79,7 @@ if (iCalURL != null){
                     let td = tr.insertCell();
                     td.textContent = RASTINFO[i];
                 }
+                link = RASTINFO[2];
                 let td = tr.insertCell();
                 td.appendChild(redir = document.createElement("button"));
                 redir.setAttribute("class", "btn btn-danger");
