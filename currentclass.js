@@ -1,6 +1,8 @@
 
 let iCalURL = localStorage.getItem("iCalURL");
 
+if (!localStorage.getItem("lectureStartOffset")) localStorage.setItem("lectureStartOffset", 600000)
+
 const MEET = [
     {subject: "TEKTEK01",   meet: "https://meet.google.com/sgi-imkg-yqv"},
     {subject: "MATMAT02c",   meet: "https://meet.google.com/wkf-bbxo-fjv"},
@@ -19,7 +21,7 @@ function isWithinTimeSpan(date, day, time) {
     days = ["S\u00F6ndag", "M\u00E5ndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "L\u00F6rdag"];
     if (day != days[date.getDay()]) return false;
     
-    let offset = localStorage.getItem("timeOffset") ? localStorage.getItem("timeOffset") : 600000; 
+    let offset = localStorage.getItem("lectureStartOffset"); //default 10min
     
     let startTime = new Date(date).setHours(parseInt(time.split("-")[0].split(":")[0]), parseInt(time.split("-")[0].split(":")[1]), 0, 0);
     startTime -= offset;
@@ -70,7 +72,6 @@ if (iCalURL != null){
             if (currentLectures <= 0) {
                 tr = document.getElementById("currentLectures").insertRow();
                 for (i = 0; i < 3; i++) {
-
                     let td = tr.insertCell();
                     td.textContent = RASTINFO[i];
                 }
