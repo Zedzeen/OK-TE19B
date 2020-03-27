@@ -18,103 +18,90 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <script src="currentclass.js"></script>
-    
-    <script src="./ical_parser/ical_parser.js"></script>
-
-
-    <body style="width:100%;" onload="classRedirect()">
-        <div class="alert alert-warning alert-dismissible" style="text-align:center;">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Varning!</strong> VAR UPPMÄRKSAM PÅ TIDEN! Klicka på info knappen för mer information.
-        </div>
-        <h1 style="text-align:center; padding-top:30px;">TE19B Online Klasser</h1>
-        <div class="container" style="padding-top:30px;">
-            <div class="card">
-                <div class="card-header bg-dark" style="color:white;">
-                    <div class="row">
-                        <div class="col-sm-9 col-12">
-                            <h3 style="float:left">Nästa/Nuvarande lektion</h3>
-                        </div>
-                        <div class="col-sm-2 col-12">
-                            <button style="float:right;" class=" btn btn-info" type="button" name="button" onclick="window.location.reload();">Uppdatera</button>
-                        </div>
-                        <div class="col-sm-1 col-12">
-                            <button style="float:right;" class=" btn btn-warning" type="button" name="button" data-toggle="collapse" data-target="#infoCol">Info</button>
-                        </div>
+<body style="width:100%;" onload="classRedirect()">
+    <script type="text/javascript" src="currentclass.js"></script>
+    <div class="alert alert-warning alert-dismissible" style="text-align:center;">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Varning!</strong> VAR UPPMÄRKSAM PÅ TIDEN! Klicka på info knappen för mer information.
+    </div>
+    <h1 style="text-align:center; padding-top:30px;">TE19B Online Klasser</h1>
+    <div class="container" style="padding-top:30px;">
+        <div class="card">
+            <div class="card-header bg-dark" style="color:white;">
+                <div class="row">
+                    <div class="col-sm-9 col-12">
+                        <h3 style="float:left">Nästa/Nuvarande lektion</h3>
                     </div>
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped", id="currentLectures">
-                        <thead>
-                            <tr>
-                                <th>Lektion</th>
-                                <th>Lärare</th>
-                                <th>Länk</th>
-                                <th>Redirect</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                    </table>
-                    <div id="infoCol" class="collapse" style="color:black;">
-                        <h6>Information:</h6>
-                        <p>VAR UPPMÄRKSAM PÅ TIDEN! Eftersom redirect länken byts ut timvis kan det resultera i att den inte stämmer överens med vilken lektion det egentligen är. Därav finnes det manuella länkar längst ner på sidan.</p>
+                    <div class="col-sm-2 col-12">
 
-                        <h6>Buggrapportering:</h6>
-                        <p>Denna sida är i BETA, det kan komma att uppstå buggar. Ifall sådana finnes bör ni kontakta Erik, Viktor eller Junior via Discord omedelbums för att få problemet åtgärdat.</p>
-
+                        <button style="float:right;" class=" btn btn-info" type="button" name="button" onclick="window.location.reload();">Uppdatera</button>
+                    </div>
+                    <div class="col-sm-1 col-12">
+                        <button style="float:right;" class=" btn btn-warning" type="button" name="button" data-toggle="collapse" data-target="#infoCol">Info</button>
                     </div>
                 </div>
             </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Lektion</th>
+                            <th>Lärare</th>
+                            <th>Länk</th>
+                            <th>Redirect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="lecture"></td>
+                            <td id="teacher"></td>
+                            <td id="link"></td>
+                            <td><button class="btn btn-danger" onclick="openLink()" id="GOTO"></button></td>
 
-            <br>
-            <br>
+                        </tr>
+                </table>
+                <div id="infoCol" class="collapse" style="color:black;">
+                    <h6>Information:</h6>
+                    <p>VAR UPPMÄRKSAM PÅ TIDEN! Eftersom redirect länken byts ut timvis kan det resultera i att den inte stämmer överens med vilken lektion det egentligen är. Därav finnes det manuella länkar längst ner på sidan.</p>
 
-            <div class="card">
-                <div class="card-header bg-dark" style="color:white;">
-                    <h3>Lista på klasser och lärare</h3>
+                    <h6>Buggrapportering:</h6>
+                    <p>Denna sida är i BETA, det kan komma att uppstå buggar. Ifall sådana finnes bör ni kontakta Erik, Viktor eller Junior via Discord omedelbums för att få problemet åtgärdat.</p>
+
                 </div>
-                <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Dag</th>
-                                <th>Tid</th>
-                                <th>&Auml;mne</th>
-                                <th>L&auml;rare</th>
-                                <th>L&auml;nk</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <br>
-            <br>
-            <div class="card">
-                <div class="card-header bg-dark" style="color:white;">
-                    <h3>iCal</h3>
-                </div>
-                <div class="card-body">
-                    <form onsubmit="submitICal();">
-                        <input class="form-control mb-6 mr-sm-6" id="iCalURL" style="width:100%;" type="url" placeholder="Insert iCal URL">
-                        <button class="btn btn-success" style="width:100%; margin-top:10px;" type="sumbit">Submit</button>
-                    </form>
-                    <button class="btn btn-danger" style="width:100%; margin-top:10px;" onclick="localStorage.clear(); window.location.reload();">Clear localStorage</button>
-                </div>
-            </div>
-
-            <br>
-            <br>
-
-            <div class="jumbotron text-center" style="margin-bottom:0; background-color:#343a40!important; color:white; ">
-                <p>©️2020 Viktor Olsson, Erik Arvidson, Junior Rantila</p>
-                <p><svg height="16" class="octicon octicon-law text-light mr-2" viewBox="0 0 14 16" version="1.1" width="16" aria-hidden="true"><path fill="#fff" fill-rule="evenodd" d="M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"></path></svg>GNU General Public License v2.0</p>
-                <a href="https://github.com/voro282/OK-TE19B">https://github.com/voro282/OK-TE19B</a>
             </div>
         </div>
-    </body>
+
+        <br>
+        <br>
+
+        <div class="card">
+            <div class="card-header bg-dark" style="color:white;">
+                <h3>Lista på klasser och lärare</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Lektion</th>
+                            <th>Lärare</th>
+                            <th>Länk</th>
+                            <th>Tid</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="jumbotron text-center" style="margin-bottom:0; background-color:#343a40!important; color:white; ">
+            <p>©️2020 Viktor Olsson, Erik Arvidson, Junior Rantila</p>
+            <p><svg height="16" class="octicon octicon-law text-light mr-2" viewBox="0 0 14 16" version="1.1" width="16" aria-hidden="true"><path fill="#fff" fill-rule="evenodd" d="M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"></path></svg>GNU General Public License v2.0</p>
+            <a href="https://github.com/voro282/OK-TE19B">https://github.com/voro282/OK-TE19B</a>
+        </div>
+    </div>
+    </div>
+</body>
 
 </html>
