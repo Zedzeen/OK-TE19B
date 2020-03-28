@@ -58,12 +58,6 @@ function isWithinTimeSpan(date, day, time) {
 }
 
 
-
-refreshPageData() // Then runs the refresh function for the first time.
-var int = self.setInterval(function() {
-    refreshPageData()
-}, 10000); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.   
-
 function refreshPageData() {
     if (iCalURL != null) {
         //run ical parser on load
@@ -78,6 +72,7 @@ function refreshPageData() {
                 let currentLectures = 0;
                 //let date = new Date("March 25, 2020 09:40");
                 let date = new Date();
+                console.log(date);
 
                 schema.forEach(function(e, i) {
                     for (j = 0; j < MEET.length; j++) {
@@ -144,6 +139,9 @@ function refreshPageData() {
         }, false);
     }
 }
+
+refreshPageData() // Then runs the refresh function for the first time.
+var refresh = setInterval(refreshPageData, 10000); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.   
 
 function classRedirect() {
 

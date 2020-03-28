@@ -29,6 +29,7 @@ function ical_parser(feed_url, callback){
         //Create request object
 		try {xmlhttp = window.XMLHttpRequest?new XMLHttpRequest(): new ActiveXObject("Microsoft.XMLHTTP");}  catch (e) { }
 		//Grab file
+
 		xmlhttp.onreadystatechange = function(){
 			if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200)) {
 				//On success, run callback.
@@ -36,7 +37,7 @@ function ical_parser(feed_url, callback){
 			}
 		}
 		xmlhttp.open("GET", proxy+url, true);
-		xmlhttp.send(null);
+        xmlhttp.send(null);
 	}
 	
 	/**
