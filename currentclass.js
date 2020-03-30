@@ -6,7 +6,8 @@ const SAM      = 3;
 const HISTORIA = 4;
 const ENGELSKA = 5;
 const MENTOR   = 6;
-const IDROTT   = 7;
+const IDROTTM  = 7;
+const IDROTTO  = 8;
 
 const LECTURE = 0;
 const TEACHER = 1;
@@ -22,7 +23,8 @@ const KLASSINFO = [
 ["Historia", "Uffe", "https://meet.google.com/nih-octd-scd",],
 ["Engelska", "Erina", "https://meet.google.com/vqn-zyxk-vme"],
 ["Mentorstid", "Ulrika", "https://meet.google.com/iqp-evan-hir"],
-["Idrott", "Micke", "https://meet.google.com/dxk-ngzd-pgf"]
+["Idrott Mondag", "Micke", "https://meet.google.com/czu-xiqy-ate"],
+["Idrott Onsdag", "Micke", "https://meet.google.com/dxk-ngzd-pgf"]
 ];
 
 const RASTINFO = ["Rast", "Discord", "https://discord.gg/HShBsv6"];
@@ -41,7 +43,7 @@ function classRedirect() {
 
     //teknik, matte, svenska, sam, historia, engelska, mentorstid
     var har = [];
-    har.length = 8;
+    har.length = 9;
     var lektionStart = [];
     var lektionEnd   = [];
 
@@ -67,13 +69,16 @@ function classRedirect() {
         har[HISTORIA]= false;
         har[ENGELSKA]= false;
         har[MENTOR]  = false;
-        har[IDROTT]  = true;
+        har[IDROTTM] = true;
+        har[IDROTTO] = true;
 
         lektionStart[TEKNIK] = 8;
         lektionEnd[TEKNIK]   = 9;
 
-        lektionStart[IDROTT] = 9;
-        lektionEnd[IDROTT]   = 11;
+        lektionStart[IDROTTM] = 9;
+        lektionEnd[IDROTTM]   = 11;
+        lektionStart[IDROTTO] = 11;
+        lektionEnd[IDROTTO]   = 12;
 
         lektionStart[SAM]    = 12;
         lektionEnd[SAM]      = 13;
@@ -108,7 +113,9 @@ function classRedirect() {
         har[HISTORIA] = false;
         har[ENGELSKA] = false;
         har[MENTOR]   = false;
-        har[IDROTT]   = true;
+        har[IDROTTO]   = true;
+        har[IDROTTM]   = true;
+
 
         lektionStart[MATTE]   = 8
         lektionEnd[MATTE]     = 9
@@ -116,8 +123,8 @@ function classRedirect() {
         lektionStart[SVENSKA] = 9
         lektionEnd[SVENSKA]   = 11
 
-        lektionStart[IDROTT]  = 13
-        lektionEnd[IDROTT]    = 14
+        lektionStart[IDROTTO]  = 13
+        lektionEnd[IDROTTO]    = 14
 
         break;
 
