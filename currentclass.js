@@ -70,15 +70,13 @@ function classRedirect() {
         har[ENGELSKA]= false;
         har[MENTOR]  = false;
         har[IDROTTM] = true;
-        har[IDROTTO] = true;
+        har[IDROTTO] = false;
 
         lektionStart[TEKNIK] = 8;
         lektionEnd[TEKNIK]   = 9;
 
         lektionStart[IDROTTM] = 9;
         lektionEnd[IDROTTM]   = 11;
-        lektionStart[IDROTTO] = 11;
-        lektionEnd[IDROTTO]   = 12;
 
         lektionStart[SAM]    = 12;
         lektionEnd[SAM]      = 13;
