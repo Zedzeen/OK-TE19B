@@ -23,7 +23,7 @@ const KLASSINFO = [
 ["Historia", "Uffe", "https://meet.google.com/nih-octd-scd",],
 ["Engelska", "Erina", "https://meet.google.com/vqn-zyxk-vme"],
 ["Mentorstid", "Ulrika", "https://meet.google.com/iqp-evan-hir"],
-["Idrott Mondag", "Micke", "https://meet.google.com/czu-xiqy-ate"],
+["Idrott Måndag", "Micke", "https://meet.google.com/czu-xiqy-ate"],
 ["Idrott Onsdag", "Micke", "https://meet.google.com/dxk-ngzd-pgf"]
 ];
 
@@ -112,7 +112,7 @@ function classRedirect() {
         har[ENGELSKA] = false;
         har[MENTOR]   = false;
         har[IDROTTO]   = true;
-        har[IDROTTM]   = true;
+        har[IDROTTM]   = false;
 
 
         lektionStart[MATTE]   = 8
