@@ -1,10 +1,8 @@
-let currentDay = new Date()
-    .getDay();
+let currentDay = new Date().getDay();
 let dayRefresh = setInterval(refreshPageData, 600000);
 
 function checkIfNewDay() {
-    if (currentDay < Date()
-        .getDay()) window.location.reload();
+    if (currentDay < Date().getDay()) window.location.reload();
 }
 
 let iCalURL = localStorage.getItem("iCalURL");
@@ -59,11 +57,9 @@ function isWithinTimeSpan(date, day, time) {
 
     let offset = localStorage.getItem("lectureStartOffset"); //default 10min
 
-    let startTime = new Date(date)
-        .setHours(parseInt(time.split("-")[0].split(":")[0]), parseInt(time.split("-")[0].split(":")[1]), 0, 0);
+    let startTime = new Date(date).setHours(parseInt(time.split("-")[0].split(":")[0]), parseInt(time.split("-")[0].split(":")[1]), 0, 0);
     startTime -= offset;
-    let endTime = new Date(date)
-        .setHours(parseInt(time.split("-")[1].split(":")[0]), parseInt(time.split("-")[1].split(":")[1]), 0, 0);
+    let endTime = new Date(date).setHours(parseInt(time.split("-")[1].split(":")[0]), parseInt(time.split("-")[1].split(":")[1]), 0, 0);
 
     return date >= startTime && date < endTime;
 }
