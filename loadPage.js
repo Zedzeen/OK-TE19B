@@ -4,5 +4,5 @@ window.addEventListener("load", function() {
         site = "old";
         localStorage.setItem("site", site);
     }
-    window.location.href = "./"+site+"/";
+    window.location.href = site;
 });
